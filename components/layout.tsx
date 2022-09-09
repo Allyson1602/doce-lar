@@ -1,6 +1,7 @@
 import { NextPage } from "next";
 import { AppProps } from "next/app";
 import { FC } from "react";
+import Footer from "./globals/footer";
 import NavBar from "./globals/navBar";
 
 interface LayoutProps {

@@ -1,6 +1,7 @@
 import { NextPage } from "next";
 import { AppProps } from "next/app";
 import { FC } from "react";
+import NavBar from "./globals/navBar";
 
 interface LayoutProps {
     children: JSX.Element;
@@ -8,9 +9,11 @@ interface LayoutProps {
 
 const Layout: FC<LayoutProps> = ({ children }) => {
     return (
-        // <Navbar />
-        <main>{children}</main>
-        // <Footer />
+        <>
+            <NavBar />
+            <main>{children}</main>
+            <Footer />
+        </>
     );
 }
 

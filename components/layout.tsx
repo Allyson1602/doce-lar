@@ -15,7 +15,6 @@ const Layout: FC<LayoutProps> = ({ children }) => {
         <ThemeProvider theme={Theme}>
             <CssBaseline enableColorScheme />
             
-            <NavBar />
             <main>{children}</main>
             <Footer />
         </ThemeProvider>

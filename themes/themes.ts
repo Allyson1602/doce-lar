@@ -1,24 +1,23 @@
 import { createTheme } from "@mui/material";
+import { Theme as ThemeMui } from "@mui/system/createTheme/createTheme";
 
-export interface ITheme {
-    palette: {
-        primary: {
-            main: string;
-        },
-        secondary: {
-            main: string;
-        }
-    }
-}
+export interface ITheme extends ThemeMui { }
 
 export const Theme = createTheme({
     palette: {
         primary: {
-            main: "#FFA941"
+            main: "#FFA941",
+            contrastText: "#FFFFFF"
         },
         secondary: {
             main: "#2EC4B6",
             light: "#CBF3F0"
         }
     },
+    typography: {
+        button: {
+            textTransform: "none"
+        },
+        fontFamily: "Poppins, Roboto, Helvetica, Arial, sans-serif",
+    }
 });

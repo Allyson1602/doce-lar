@@ -2,7 +2,7 @@ import { FC } from "react";
 import { Toolbar } from "@mui/material";
 import Logo from "../../public/logo.png";
 
-import { ButtonRentStyled, NavBarStyled } from "../../styles/components/globals/navBar";
+import { ButtonRentStyled, NavBarStyled, TitleStyled, ToolbarStyled } from "../../styles/components/globals/navBar";
 import Image from "next/image";
 
 interface NavBarProps {
@@ -12,15 +12,17 @@ interface NavBarProps {
 }
 
 const NavBar: FC<NavBarProps> = ({ rent, title }) => {
-    const rentButton = rent || true;
+    const rentButton = rent !== undefined ? rent : true;
 
     return (
         <NavBarStyled color="default">
-            <Toolbar>
+            <ToolbarStyled>
                 <Image src={Logo} alt="logo do sistema" />
 
-                <ButtonRentStyled>alugar</ButtonRentStyled>
-            </Toolbar>
+                {rentButton && <ButtonRentStyled>alugar</ButtonRentStyled>}
+
+                {title && <TitleStyled>{title}</TitleStyled>}
+            </ToolbarStyled>
         </NavBarStyled>
     );
 }

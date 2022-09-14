@@ -14,7 +14,7 @@ const NavBar: FC<NavBarProps> = ({ rent, title }) => {
     const rentButton = rent || true;
 
     return (
-        <NavBarStyled>
+        <NavBarStyled color="primary">
             <Toolbar>
                 <IconButton
                     size="large"

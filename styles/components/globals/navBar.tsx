@@ -1,7 +1,11 @@
 import styled from "@emotion/styled";
-import { AppBar } from "@mui/material";
+import { AppBar, Button } from "@mui/material";
+import { ITheme } from "../../../themes/themes";
 
-// Criar arquivo de themes
 export const NavBarStyled = styled(AppBar)`
 
+`;
+
+export const ButtonRentStyled = styled(Button)`
+    background: ${props => (props.theme as ITheme).palette}
 `;

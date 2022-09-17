@@ -15,7 +15,7 @@ ListRentals.getLayout = function getLayout(page: ReactElement) {
   return (
     <Layout>
       <>
-        <NavBar title="cadastro de aluguel" rent={false} />
+        <NavBar />
         {page}
       </>
     </Layout>

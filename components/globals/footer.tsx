@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { CopyrightStyled, FooterStyled } from "../../styles/components/globals/footer";
+import { CopyrightStyled, DividerBackTopStyled, FooterStyled, GroupSocialsStyled, LinkBackTopStyled, LinksStyled, MoreLinksStyled, TitleSocial, DocsStyled } from "../../styles/components/globals/footer";
 import FacebookIcon from '@mui/icons-material/Facebook';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
@@ -22,42 +22,48 @@ const Footer: FC<FooterProps> = ({ colorStyle }) => {
         <FooterStyled color={color}>
             <Container>
                 <Stack direction="row" justifyContent="center">
-                    <Link href="" as="a">voltar para o topo</Link>
+                    <LinkBackTopStyled>voltar para o topo</LinkBackTopStyled>
                 </Stack>
 
-                <Divider />
+                <MoreLinksStyled>
+                    <DividerBackTopStyled />
 
-                <Stack direction="row" justifyContent="space-evenly">
-                    <Link href="" as="a">Sobre nós</Link>
-                    
-                    <Link href="" as="a">Dúvidas frequentes</Link>
-                </Stack>
+                    <LinksStyled direction="row" justifyContent="space-between">
+                        <Link href="">Dúvidas frequentes</Link>
+
+                        <Link href="">Sobre nós</Link>
+                    </LinksStyled>
+                </MoreLinksStyled>
 
                 <Stack>
-                    <Typography align="center">Redes sociais</Typography>
-                    <Divider />
-                    <Stack direction="row" justifyContent="center">
-                        <Link href="">
-                            <FacebookIcon />
-                        </Link>
+                    <TitleSocial align="center">Redes sociais</TitleSocial>
 
-                        <Link href="">
-                            <InstagramIcon />
-                        </Link>
+                    <GroupSocialsStyled>
+                        <DividerBackTopStyled />
+                        
+                        <Stack direction="row" justifyContent="center" gap={2}>
+                            <a href="https://www.facebook.com/allyson.athyrson" target="_blank" rel="noreferrer">
+                                <FacebookIcon />
+                            </a>
 
-                        <Link href="">
-                            <LinkedInIcon />
-                        </Link>
-                    </Stack>
+                            <a href="https://www.instagram.com/allysonathyrson/" target="_blank" rel="noreferrer">
+                                <InstagramIcon />
+                            </a>
+
+                            <a href="https://www.linkedin.com/in/allyson-athyrson-487461109/" target="_blank" rel="noreferrer">
+                                <LinkedInIcon />
+                            </a>
+                        </Stack>
+                    </GroupSocialsStyled>
                 </Stack>
 
-                <Stack>
-                    <Link href="" as="a">Termo de uso</Link>
-                    <Link href="" as="a">Política de tratamento de dados</Link>
-                </Stack>
+                <DocsStyled>
+                    <Link href="">Termo de uso</Link>
+                    <Link href="">Política de tratamento de dados</Link>
+                </DocsStyled>
 
                 <CopyrightStyled className="copyright">
-                    <Typography className="copyright_text" textAlign="center">Copyright Styled© 2022 Allyson Athyrson. Todos os direitos reservados.</Typography>
+                    <Typography className="copyright_text" textAlign="center">Copyright 2022 Allyson Athyrson. Todos os direitos reservados.</Typography>
                     <Typography className="copyright_text" textAlign="center">Brasília - Distrito Federal</Typography>
                 </CopyrightStyled>
             </Container>

@@ -8,6 +8,17 @@ export interface ITheme extends ThemeMui {
             textTransform: string;
         },
         fontFamily: string;
+    },
+    palette: {
+        mode: 'light' | 'dark',
+        primary: {
+            main: string;
+            contrastText: string;
+        },
+        secondary: {
+            main: string;
+            light: string;
+        }
     }
 }
 

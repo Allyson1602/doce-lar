@@ -18,11 +18,15 @@ interface FooterProps {
 const Footer: FC<FooterProps> = ({ colorStyle }) => {
     const color = colorStyle || TypeColorFooter.Primary;
 
+    const goToTop = () => {
+       window.scrollTo(0,0);
+    };
+
     return (
         <FooterStyled color={color}>
             <Container>
                 <Stack direction="row" justifyContent="center">
-                    <LinkBackTopStyled>voltar para o topo</LinkBackTopStyled>
+                    <LinkBackTopStyled onClick={goToTop}>voltar para o topo</LinkBackTopStyled>
                 </Stack>
 
                 <MoreLinksStyled>

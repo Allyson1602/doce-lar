@@ -18,7 +18,7 @@ const ListRentals: NextPageWithLayout = () => {
   };
   
   return (
-    <Box>
+    <Box sx={{backgroundColor: (theme) => theme.palette.secondary.main}}>
       <Filter filters={filters} setFilters={changeFilters} />
 
       {/* <Order />

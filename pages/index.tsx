@@ -5,16 +5,21 @@ import type { NextPageWithLayout } from './_app';
 import NavBar from '../components/globals/navBar';
 import Layout from '../components/layout';
 
-import Filter from '../components/Filter';
 import { dataFilter } from '../model/filter';
+import { DataFilter } from '../interfaces/filter';
+import Filter from '../components/filter';
 
 const ListRentals: NextPageWithLayout = () => {
 
   const [filters, setFilters] = useState(dataFilter);
+
+  const changeFilters = (newFilters: DataFilter) => {
+    setFilters({...newFilters});
+  };
   
   return (
     <Box>
-      <Filter />
+      <Filter filters={filters} setFilters={changeFilters} />
 
       {/* <Order />
 

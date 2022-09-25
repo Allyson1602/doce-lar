@@ -15,8 +15,23 @@ export const ChipsStyled = styled(Stack)`
     justify-content: space-around;
     gap: 3px;
 
-    .MuiChip-root {
+    .MuiChip-filled {
+        background-color: ${props => (props.theme as ITheme).palette.common.white};
+        color: ${props => (props.theme as ITheme).palette.secondary.main};
+        border: 1px solid transparent;
+        
+        :hover {
+            opacity: 0.8;
+        };
+    };
+
+    .MuiChip-outlined {
         color: ${props => (props.theme as ITheme).palette.common.white};
         border: 1px solid ${props => (props.theme as ITheme).palette.common.white};
-    }
+    };
+
+    .filter__more-chip {
+        background-color: ${props => (props.theme as ITheme).palette.secondary.light};
+        color: ${props => (props.theme as ITheme).palette.common.black};
+    };
 `;

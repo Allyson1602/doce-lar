@@ -1,0 +1,26 @@
+import { DataFilter } from "../interfaces/filter";
+
+export let dataFilter: DataFilter = {
+    animals: true,
+    kids: true,
+    garage: true,
+    furnished: true,
+    barbecue: true,
+    swimmingPool: true,
+    porch: true,
+    garden: true,
+    airconditioning: true,
+    internet: true,
+    security: true,
+    bathrooms: 2,
+    floorImmobile: 2,
+    vacancyCar: 2,
+    people: 2,
+    rooms: 2,
+    advertiserName: "João Gabriel",
+    immobileType: "Apartamento",
+    areaMinimum: 400,
+    areaMaximum: 1000,
+    minimumValue: 800,
+    maximumValue: 2000,
+};

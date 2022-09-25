@@ -14,7 +14,7 @@ const Layout: FC<LayoutProps> = ({ children }) => {
             <CssBaseline enableColorScheme />
             
             <Stack justifyContent="space-between" height="100vh">
-                <main>{children}</main>
+                <main style={{ marginTop: "56px" }}>{children}</main>
                 <Footer />
             </Stack>
         </ThemeProvider>

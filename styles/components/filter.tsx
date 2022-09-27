@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import { Container, Stack, Typography } from "@mui/material";
+import { Box, Container, Stack, Typography } from "@mui/material";
 import { ITheme } from "../../themes/themes";
 
 export const FilterStyled = styled(Container)``;
@@ -20,6 +20,7 @@ export const ChipsStyled = styled(Stack)`
         
         :hover {
             opacity: 0.8;
+            background-color: ${props => (props.theme as ITheme).palette.common.white};
         };
     };
 
@@ -32,4 +33,16 @@ export const ChipsStyled = styled(Stack)`
         background-color: ${props => (props.theme as ITheme).palette.secondary.light};
         color: ${props => (props.theme as ITheme).palette.common.black};
     };
+`;
+
+export const DialogChipsStyled = styled(Stack)`
+
+`;
+
+export const SlidersStyled = styled(Stack)`
+
+`;
+
+export const BoxSlider = styled(Box)`
+
 `;

@@ -15,6 +15,7 @@ const Filter: FC<FilterProps> = (props) => {
     const [open, setOpen] = useState(false);
 
     const [bathrooms, setBathrooms] = useState(0);
+    const [immobile, setImmobile] = useState(0);
 
     const handleClickAnimals = () => {
         let changeFilters = filters;
@@ -124,8 +125,60 @@ const Filter: FC<FilterProps> = (props) => {
                 break;
         }
 
+        props.setFilters(changeFilters);
+    };
+
+    const handleChangeImmobile = (event: Event, value: number | number[], activeThumb: number) => {
+        setImmobile(value as number);
         
-        console.log(changeFilters);
+        let changeFilters = filters;
+
+        switch(value) {
+            case 0:
+                changeFilters.floorImmobile = 0;
+                break;
+
+            case 10:
+                changeFilters.floorImmobile = 1;
+                break;
+
+            case 20:
+                changeFilters.floorImmobile = 2;
+                break;
+
+            case 30:
+                changeFilters.floorImmobile = 3;
+                break;
+
+            case 40:
+                changeFilters.floorImmobile = 4;
+                break;
+
+            case 50:
+                changeFilters.floorImmobile = 5;
+                break;
+
+            case 60:
+                changeFilters.floorImmobile = 6;
+                break;
+
+            case 70:
+                changeFilters.floorImmobile = 7;
+                break;
+
+            case 80:
+                changeFilters.floorImmobile = 8;
+                break;
+
+            case 90:
+                changeFilters.floorImmobile = 9;
+                break;
+
+            case 100:
+                changeFilters.floorImmobile = 10;
+                break;
+        }
+
         props.setFilters(changeFilters);
     };
 
@@ -239,11 +292,68 @@ const Filter: FC<FilterProps> = (props) => {
                             step={20}
                         />
                     </BoxSlider>
+                    
+                    <BoxSlider>
+                        <Typography>Andar do imóvel:</Typography>
+                        <Slider
+                            value={immobile}
+                            onChange={handleChangeImmobile}
+                            marks={sliderMarksImmobile}
+                            step={10}
+                        />
+                    </BoxSlider>
                 </SlidersStyled>
             </Dialog>
         </FilterStyled>
     );
 };
+
+let sliderMarksImmobile = [
+    {
+      value: 0,
+      label: '0',
+    },
+    {
+      value: 10,
+      label: '1',
+    },
+    {
+      value: 20,
+      label: '2',
+    },
+    {
+      value: 30,
+      label: '3',
+    },
+    {
+      value: 40,
+      label: '4',
+    },
+    {
+      value: 50,
+      label: '5',
+    },
+    {
+      value: 60,
+      label: '6',
+    },
+    {
+      value: 70,
+      label: '7',
+    },
+    {
+      value: 80,
+      label: '8',
+    },
+    {
+      value: 90,
+      label: '9',
+    },
+    {
+      value: 100,
+      label: '10',
+    },
+];
 
 let sliderMarksBathroom = [
     {

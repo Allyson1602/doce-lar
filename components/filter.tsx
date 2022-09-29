@@ -17,6 +17,7 @@ const Filter: FC<FilterProps> = (props) => {
     const [bathrooms, setBathrooms] = useState(0);
     const [immobile, setImmobile] = useState(0);
     const [vacancyCar, setVacancyCar] = useState(0);
+    const [people, setPeople] = useState(0);
 
     const handleClickAnimals = () => {
         let changeFilters = filters;
@@ -217,6 +218,40 @@ const Filter: FC<FilterProps> = (props) => {
         props.setFilters(changeFilters);
     };
 
+    const handleChangePeople = (event: Event, value: number | number[], activeThumb: number) => {
+        setPeople(value as number);
+        
+        let changeFilters = filters;
+
+        switch(value) {
+            case 0:
+                changeFilters.people = 0;
+                break;
+
+            case 20:
+                changeFilters.people = 1;
+                break;
+
+            case 40:
+                changeFilters.people = 2;
+                break;
+
+            case 60:
+                changeFilters.people = 3;
+                break;
+
+            case 80:
+                changeFilters.people = 4;
+                break;
+
+            case 100:
+                changeFilters.people = 5;
+                break;
+        }
+
+        props.setFilters(changeFilters);
+    };
+
     const handleClickMoreFilters = () => {
         setOpen(true);
     };
@@ -258,10 +293,9 @@ const Filter: FC<FilterProps> = (props) => {
 
             <Dialog open={open} fullScreen>
                 <IconButton
-                edge="start"
-                color="inherit"
-                onClick={handleCloseDialog}
-                aria-label="close"
+                    edge="start"
+                    color="inherit"
+                    onClick={handleCloseDialog}
                 >
                     <CloseIcon />
                 </IconButton>
@@ -347,11 +381,68 @@ const Filter: FC<FilterProps> = (props) => {
                             step={20}
                         />
                     </BoxSlider>
+                    
+                    <BoxSlider>
+                        <Typography>Quantidade pessoas:</Typography>
+                        <Slider
+                            value={people}
+                            onChange={handleChangePeople}
+                            marks={sliderMarksPeople}
+                            step={10}
+                        />
+                    </BoxSlider>
                 </SlidersStyled>
             </Dialog>
         </FilterStyled>
     );
 };
+
+let sliderMarksPeople = [
+    {
+      value: 0,
+      label: '0',
+    },
+    {
+      value: 10,
+      label: '1',
+    },
+    {
+      value: 20,
+      label: '2',
+    },
+    {
+      value: 30,
+      label: '3',
+    },
+    {
+      value: 40,
+      label: '4',
+    },
+    {
+      value: 50,
+      label: '5',
+    },
+    {
+      value: 60,
+      label: '6',
+    },
+    {
+      value: 70,
+      label: '7',
+    },
+    {
+      value: 80,
+      label: '8',
+    },
+    {
+      value: 90,
+      label: '9',
+    },
+    {
+      value: 100,
+      label: '10',
+    },
+];
 
 let sliderMarksVacancyCar = [
     {

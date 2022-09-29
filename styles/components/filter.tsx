@@ -1,11 +1,68 @@
 import styled from "@emotion/styled";
-import { Box, Container, Stack, Typography } from "@mui/material";
+import { Box, Container, Dialog, Stack, Typography } from "@mui/material";
 import { ITheme } from "../../themes/themes";
 
 export const FilterStyled = styled(Container)``;
 
 export const TitleStyled = styled(Typography)`
     color: ${props => (props.theme as ITheme).palette.common.white};
+`;
+
+export const DialogStyled = styled(Dialog)`
+
+`;
+
+export const ContentDialogStyled = styled(Box)`
+    background-color: ${props => (props.theme as ITheme).palette.secondary.light};
+    padding: ${props => (props.theme as ITheme).spacing(0, 4)};
+`;
+
+export const DialogChipsStyled = styled(Stack)`
+    flex-direction: row;
+    max-width: 100vw;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: ${props => (props.theme as ITheme).spacing(1)};
+    margin-top: ${props => (props.theme as ITheme).spacing(6)};
+    margin-bottom: ${props => (props.theme as ITheme).spacing(2)};
+    
+    .MuiChip-filled {
+        color: ${props => (props.theme as ITheme).palette.common.white};
+        background-color: ${props => (props.theme as ITheme).palette.secondary.main};
+        border: 1px solid transparent;
+        
+        :hover {
+            opacity: 0.8;
+        };
+    };
+
+    .MuiChip-outlined {
+        color: ${props => (props.theme as ITheme).palette.secondary.main};
+        border: 1px solid ${props => (props.theme as ITheme).palette.secondary.main};
+    };
+`;
+
+export const DialogSlidersStyled = styled(Stack)`
+
+`;
+
+export const DialogBoxSliderStyled = styled(Box)`
+    margin-top: ${props => (props.theme as ITheme).spacing(2)};
+`;
+
+export const DialogTextInputsStyled = styled(Stack)`
+    margin: ${props => (props.theme as ITheme).spacing(4, 0)};
+    gap: ${props => (props.theme as ITheme).spacing(2)};
+`;
+
+export const DialogBoxTextStyled = styled(Box)`
+    #immobile-type-label {
+        font-size: 13px;
+    };
+
+    .MuiTextField-root, .MuiFormControl-root {
+        background: #FFFFFFAA;
+    };
 `;
 
 export const ChipsStyled = styled(Stack)`
@@ -33,24 +90,4 @@ export const ChipsStyled = styled(Stack)`
         background-color: ${props => (props.theme as ITheme).palette.secondary.light};
         color: ${props => (props.theme as ITheme).palette.common.black};
     };
-`;
-
-export const DialogChipsStyled = styled(Stack)`
-
-`;
-
-export const DialogSlidersStyled = styled(Stack)`
-
-`;
-
-export const DialogTextInputsStyled = styled(Stack)`
-
-`;
-
-export const DialogBoxSliderStyled = styled(Box)`
-
-`;
-
-export const DialogBoxTextStyled = styled(Box)`
-
 `;

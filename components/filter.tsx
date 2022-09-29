@@ -1,7 +1,7 @@
 import { Chip, Dialog, FormControl, IconButton, InputLabel, MenuItem, Select, SelectChangeEvent, Slider, TextField, Typography } from "@mui/material";
 import { ChangeEvent, FC, useState } from "react";
 import { DataFilter } from "../interfaces/filter";
-import { DialogBoxSliderStyled, ChipsStyled, DialogChipsStyled, FilterStyled, DialogSlidersStyled, TitleStyled, DialogTextInputsStyled, DialogBoxTextStyled } from "../styles/components/filter";
+import { DialogBoxSliderStyled, ChipsStyled, DialogChipsStyled, FilterStyled, DialogSlidersStyled, TitleStyled, DialogTextInputsStyled, DialogBoxTextStyled, DialogStyled, ContentDialogStyled } from "../styles/components/filter";
 import CloseIcon from '@mui/icons-material/Close';
 import { Stack } from "@mui/system";
 
@@ -357,193 +357,210 @@ const Filter: FC<FilterProps> = (props) => {
                 />
             </ChipsStyled>
 
-            <Dialog open={open} fullScreen>
-                <IconButton
-                    edge="start"
-                    color="inherit"
-                    onClick={handleCloseDialog}
-                >
-                    <CloseIcon />
-                </IconButton>
+            <DialogStyled open={open} fullScreen>
+                <ContentDialogStyled>
+                    <IconButton
+                        edge="end"
+                        color="inherit"
+                        onClick={handleCloseDialog}
+                        sx={{
+                        position: 'absolute',
+                        right: 15,
+                        top: 5,
+                        color: (theme) => theme.palette.grey[500],
+                        }}
+                    >
+                        <CloseIcon />
+                    </IconButton>
 
-                <DialogChipsStyled>
-                    <Chip
-                        size="small"
-                        label="furnished"
-                        variant={filters.furnished ? "outlined" : "filled"}
-                        onClick={handleClickFurnished}
-                    />
-                    <Chip
-                        size="small"
-                        label="barbecue"
-                        variant={filters.barbecue ? "outlined" : "filled"}
-                        onClick={handleClickBarbecue}
-                    />
-                    <Chip
-                        size="small"
-                        label="swimmingPool"
-                        variant={filters.swimmingPool ? "outlined" : "filled"}
-                        onClick={handleClickSwimmingPool}
-                    />
-                    <Chip
-                        size="small"
-                        label="porch"
-                        variant={filters.porch ? "outlined" : "filled"}
-                        onClick={handleClickPorch}
-                    />
-                    <Chip
-                        size="small"
-                        label="garden"
-                        variant={filters.garden ? "outlined" : "filled"}
-                        onClick={handleClickGarden}
-                    />
-                    <Chip
-                        size="small"
-                        label="airconditioning"
-                        variant={filters.airconditioning ? "outlined" : "filled"}
-                        onClick={handleClickAirconditioning}
-                    />
-                    <Chip
-                        size="small"
-                        label="internet"
-                        variant={filters.internet ? "outlined" : "filled"}
-                        onClick={handleClickInternet}
-                    />
-                    <Chip
-                        size="small"
-                        label="security"
-                        variant={filters.security ? "outlined" : "filled"}
-                        onClick={handleClickSecurity}
-                    />
-                </DialogChipsStyled>
+                    <DialogChipsStyled>
+                        <Chip
+                            label="mobiliado"
+                            className="dialog__chip"
+                            variant={filters.furnished ? "outlined" : "filled"}
+                            onClick={handleClickFurnished}
+                        />
+                        <Chip
+                            label="churrasqueira"
+                            className="dialog__chip"
+                            variant={filters.barbecue ? "outlined" : "filled"}
+                            onClick={handleClickBarbecue}
+                        />
+                        <Chip
+                            label="piscina"
+                            className="dialog__chip"
+                            variant={filters.swimmingPool ? "outlined" : "filled"}
+                            onClick={handleClickSwimmingPool}
+                        />
+                        <Chip
+                            label="varanda"
+                            className="dialog__chip"
+                            variant={filters.porch ? "outlined" : "filled"}
+                            onClick={handleClickPorch}
+                        />
+                        <Chip
+                            label="jardim"
+                            className="dialog__chip"
+                            variant={filters.garden ? "outlined" : "filled"}
+                            onClick={handleClickGarden}
+                        />
+                        <Chip
+                            label="ar-condicionado"
+                            className="dialog__chip"
+                            variant={filters.airconditioning ? "outlined" : "filled"}
+                            onClick={handleClickAirconditioning}
+                        />
+                        <Chip
+                            label="internet"
+                            className="dialog__chip"
+                            variant={filters.internet ? "outlined" : "filled"}
+                            onClick={handleClickInternet}
+                        />
+                        <Chip
+                            label="seguro"
+                            className="dialog__chip"
+                            variant={filters.security ? "outlined" : "filled"}
+                            onClick={handleClickSecurity}
+                        />
+                    </DialogChipsStyled>
 
-                <DialogSlidersStyled>
-                    <DialogBoxSliderStyled>
-                        <Typography>Quantidade de banheiros:</Typography>
-                        <Slider
-                            value={bathrooms}
-                            onChange={handleChangeBathrooms}
-                            marks={sliderMarksBathroom}
-                            step={20}
-                        />
-                    </DialogBoxSliderStyled>
-                    
-                    <DialogBoxSliderStyled>
-                        <Typography>Andar do imóvel:</Typography>
-                        <Slider
-                            value={immobile}
-                            onChange={handleChangeImmobile}
-                            marks={sliderMarksImmobile}
-                            step={10}
-                        />
-                    </DialogBoxSliderStyled>
-                    
-                    <DialogBoxSliderStyled>
-                        <Typography>Vaga para carro:</Typography>
-                        <Slider
-                            value={vacancyCar}
-                            onChange={handleChangeVacancyCar}
-                            marks={sliderMarksVacancyCar}
-                            step={20}
-                        />
-                    </DialogBoxSliderStyled>
-                    
-                    <DialogBoxSliderStyled>
-                        <Typography>Quantidade pessoas:</Typography>
-                        <Slider
-                            value={people}
-                            onChange={handleChangePeople}
-                            marks={sliderMarksPeople}
-                            step={10}
-                        />
-                    </DialogBoxSliderStyled>
-                    
-                    <DialogBoxSliderStyled>
-                        <Typography>Quantidade quartos:</Typography>
-                        <Slider
-                            value={rooms}
-                            onChange={handleChangeRooms}
-                            marks={sliderMarksRooms}
-                            step={20}
-                        />
-                    </DialogBoxSliderStyled>
-                </DialogSlidersStyled>
+                    <DialogSlidersStyled>
+                        <DialogBoxSliderStyled>
+                            <Typography variant="body2">Quantidade de banheiros:</Typography>
+                            <Slider
+                                value={bathrooms}
+                                onChange={handleChangeBathrooms}
+                                marks={sliderMarksBathroom}
+                                step={20}
+                                color="secondary"
+                            />
+                        </DialogBoxSliderStyled>
+                        
+                        <DialogBoxSliderStyled>
+                            <Typography variant="body2">Andar do imóvel:</Typography>
+                            <Slider
+                                value={immobile}
+                                onChange={handleChangeImmobile}
+                                marks={sliderMarksImmobile}
+                                step={10}
+                                color="secondary"
+                            />
+                        </DialogBoxSliderStyled>
+                        
+                        <DialogBoxSliderStyled>
+                            <Typography variant="body2">Vaga para carro:</Typography>
+                            <Slider
+                                value={vacancyCar}
+                                onChange={handleChangeVacancyCar}
+                                marks={sliderMarksVacancyCar}
+                                step={20}
+                                color="secondary"
+                            />
+                        </DialogBoxSliderStyled>
+                        
+                        <DialogBoxSliderStyled>
+                            <Typography variant="body2">Quantidade pessoas:</Typography>
+                            <Slider
+                                value={people}
+                                onChange={handleChangePeople}
+                                marks={sliderMarksPeople}
+                                step={10}
+                                color="secondary"
+                            />
+                        </DialogBoxSliderStyled>
+                        
+                        <DialogBoxSliderStyled>
+                            <Typography variant="body2">Quantidade quartos:</Typography>
+                            <Slider
+                                value={rooms}
+                                onChange={handleChangeRooms}
+                                marks={sliderMarksRooms}
+                                step={20}
+                                color="secondary"
+                            />
+                        </DialogBoxSliderStyled>
+                    </DialogSlidersStyled>
 
-                <DialogTextInputsStyled>
-                    <DialogBoxTextStyled>
-                        <TextField
-                            label="Nome anunciante:"
-                            value={advertiserName}
-                            onChange={handleChangeAdvertiserName}
-                            size="small"
-                            InputLabelProps={{shrink: true}}
-                        />
-                    </DialogBoxTextStyled>
-
-                    <FormControl fullWidth>
-                        <InputLabel id="immobile-type-label" shrink>Tipo imóvel:</InputLabel>
-                        <Select
-                            size="small"
-                            labelId="immobile-type-label"
-                            label="Tipo imóvel:"
-                            value={immobileType}
-                            onChange={handleChangeImmobileType}
-                        >
-                            <MenuItem value="apartment">Apartamento</MenuItem>
-                            <MenuItem value="house">Casa</MenuItem>
-                            <MenuItem value="store">Loja</MenuItem>
-                            <MenuItem value="garage">Garagem</MenuItem>
-                            <MenuItem value="kitnet">Kitnet</MenuItem>
-                            <MenuItem value="lot/land">Lote/Terreno</MenuItem>
-                            <MenuItem value="livingRoom">Sala</MenuItem>
-                        </Select>
-                    </FormControl>
-                    
-                    <Stack>
+                    <DialogTextInputsStyled>
                         <DialogBoxTextStyled>
                             <TextField
-                                label="Área mínima:"
-                                value={minimumArea}
-                                onChange={handleChangeMinimumArea}
+                                label="Nome anunciante:"
+                                value={advertiserName}
+                                onChange={handleChangeAdvertiserName}
                                 size="small"
+                                color="secondary"
                                 InputLabelProps={{shrink: true}}
+                                fullWidth
                             />
+                        </DialogBoxTextStyled>
+
+                        <DialogBoxTextStyled>
+                            <FormControl fullWidth color="secondary">
+                                <InputLabel id="immobile-type-label">Tipo imóvel:</InputLabel>
+                                <Select
+                                    size="small"
+                                    labelId="immobile-type-label"
+                                    label="Tipo imóvel:"
+                                    value={immobileType}
+                                    onChange={handleChangeImmobileType}
+                                >
+                                    <MenuItem value="apartment">Apartamento</MenuItem>
+                                    <MenuItem value="house">Casa</MenuItem>
+                                    <MenuItem value="store">Loja</MenuItem>
+                                    <MenuItem value="garage">Garagem</MenuItem>
+                                    <MenuItem value="kitnet">Kitnet</MenuItem>
+                                    <MenuItem value="lot/land">Lote/Terreno</MenuItem>
+                                    <MenuItem value="livingRoom">Sala</MenuItem>
+                                </Select>
+                            </FormControl>
                         </DialogBoxTextStyled>
                         
-                        <DialogBoxTextStyled>
-                            <TextField
-                                label="Área máxima:"
-                                value={maximumArea}
-                                onChange={handleChangeMaximumArea}
-                                size="small"
-                                InputLabelProps={{shrink: true}}
-                            />
-                        </DialogBoxTextStyled>
-                    </Stack>
-                    
-                    <Stack>
-                        <DialogBoxTextStyled>
-                            <TextField
-                                label="Valor mínimo:"
-                                value={minimumValue}
-                                onChange={handleChangeMinimumValue}
-                                size="small"
-                                InputLabelProps={{shrink: true}}
-                            />
-                        </DialogBoxTextStyled>
+                        <Stack direction="row" gap={2}>
+                            <DialogBoxTextStyled>
+                                <TextField
+                                    label="Área mínima:"
+                                    value={minimumArea}
+                                    onChange={handleChangeMinimumArea}
+                                    size="small"
+                                    InputLabelProps={{shrink: true}}
+                                />
+                            </DialogBoxTextStyled>
+                            
+                            <DialogBoxTextStyled>
+                                <TextField
+                                    label="Área máxima:"
+                                    value={maximumArea}
+                                    onChange={handleChangeMaximumArea}
+                                    size="small"
+                                    InputLabelProps={{shrink: true}}
+                                />
+                            </DialogBoxTextStyled>
+                        </Stack>
                         
-                        <DialogBoxTextStyled>
-                            <TextField
-                                label="Valor máximo:"
-                                value={maximumValue}
-                                onChange={handleChangeMaximumValue}
-                                size="small"
-                                InputLabelProps={{shrink: true}}
-                            />
-                        </DialogBoxTextStyled>
-                    </Stack>
-                </DialogTextInputsStyled>
-            </Dialog>
+                        <Stack direction="row" gap={2}>
+                            <DialogBoxTextStyled>
+                                <TextField
+                                    label="Valor mínimo:"
+                                    value={minimumValue}
+                                    onChange={handleChangeMinimumValue}
+                                    size="small"
+                                    InputLabelProps={{shrink: true}}
+                                />
+                            </DialogBoxTextStyled>
+                            
+                            <DialogBoxTextStyled>
+                                <TextField
+                                    label="Valor máximo:"
+                                    value={maximumValue}
+                                    onChange={handleChangeMaximumValue}
+                                    size="small"
+                                    InputLabelProps={{shrink: true}}
+                                />
+                            </DialogBoxTextStyled>
+                        </Stack>
+                    </DialogTextInputsStyled>
+                </ContentDialogStyled>
+            </DialogStyled>
         </FilterStyled>
     );
 };

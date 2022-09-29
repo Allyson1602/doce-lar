@@ -39,10 +39,18 @@ export const DialogChipsStyled = styled(Stack)`
 
 `;
 
-export const SlidersStyled = styled(Stack)`
+export const DialogSlidersStyled = styled(Stack)`
 
 `;
 
-export const BoxSlider = styled(Box)`
+export const DialogTextInputsStyled = styled(Stack)`
+
+`;
+
+export const DialogBoxSliderStyled = styled(Box)`
+
+`;
+
+export const DialogBoxTextStyled = styled(Box)`
 
 `;

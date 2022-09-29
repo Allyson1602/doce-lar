@@ -1,8 +1,9 @@
-import { Chip, Dialog, IconButton, Slider, Typography } from "@mui/material";
+import { Chip, Dialog, FormControl, IconButton, InputLabel, MenuItem, Select, Slider, TextField, Typography } from "@mui/material";
 import { FC, useState } from "react";
 import { DataFilter } from "../interfaces/filter";
-import { BoxSlider, ChipsStyled, DialogChipsStyled, FilterStyled, SlidersStyled, TitleStyled } from "../styles/components/filter";
+import { DialogBoxSliderStyled, ChipsStyled, DialogChipsStyled, FilterStyled, DialogSlidersStyled, TitleStyled, DialogTextInputsStyled, DialogBoxTextStyled } from "../styles/components/filter";
 import CloseIcon from '@mui/icons-material/Close';
+import { Stack } from "@mui/system";
 
 interface FilterProps {
     filters: DataFilter;
@@ -386,8 +387,8 @@ const Filter: FC<FilterProps> = (props) => {
                     />
                 </DialogChipsStyled>
 
-                <SlidersStyled>
-                    <BoxSlider>
+                <DialogSlidersStyled>
+                    <DialogBoxSliderStyled>
                         <Typography>Quantidade de banheiros:</Typography>
                         <Slider
                             value={bathrooms}
@@ -395,9 +396,9 @@ const Filter: FC<FilterProps> = (props) => {
                             marks={sliderMarksBathroom}
                             step={20}
                         />
-                    </BoxSlider>
+                    </DialogBoxSliderStyled>
                     
-                    <BoxSlider>
+                    <DialogBoxSliderStyled>
                         <Typography>Andar do imóvel:</Typography>
                         <Slider
                             value={immobile}
@@ -405,9 +406,9 @@ const Filter: FC<FilterProps> = (props) => {
                             marks={sliderMarksImmobile}
                             step={10}
                         />
-                    </BoxSlider>
+                    </DialogBoxSliderStyled>
                     
-                    <BoxSlider>
+                    <DialogBoxSliderStyled>
                         <Typography>Vaga para carro:</Typography>
                         <Slider
                             value={vacancyCar}
@@ -415,9 +416,9 @@ const Filter: FC<FilterProps> = (props) => {
                             marks={sliderMarksVacancyCar}
                             step={20}
                         />
-                    </BoxSlider>
+                    </DialogBoxSliderStyled>
                     
-                    <BoxSlider>
+                    <DialogBoxSliderStyled>
                         <Typography>Quantidade pessoas:</Typography>
                         <Slider
                             value={people}
@@ -425,9 +426,9 @@ const Filter: FC<FilterProps> = (props) => {
                             marks={sliderMarksPeople}
                             step={10}
                         />
-                    </BoxSlider>
+                    </DialogBoxSliderStyled>
                     
-                    <BoxSlider>
+                    <DialogBoxSliderStyled>
                         <Typography>Quantidade quartos:</Typography>
                         <Slider
                             value={rooms}
@@ -435,8 +436,53 @@ const Filter: FC<FilterProps> = (props) => {
                             marks={sliderMarksRooms}
                             step={20}
                         />
-                    </BoxSlider>
-                </SlidersStyled>
+                    </DialogBoxSliderStyled>
+                </DialogSlidersStyled>
+
+                <DialogTextInputsStyled>
+                    <DialogBoxTextStyled>
+                        <TextField label="Nome anunciante:" InputLabelProps={{shrink: true}} size="small" />
+                    </DialogBoxTextStyled>
+
+                    <FormControl fullWidth>
+                        <InputLabel id="immobile-type-label" shrink>Tipo imóvel:</InputLabel>
+                        <Select
+                            size="small"
+                            labelId="immobile-type-label"
+                            label="Tipo imóvel:"
+                            // value={age}
+                            // onChange={handleChange}
+                        >
+                            <MenuItem value="apartment">Apartamento</MenuItem>
+                            <MenuItem value="house">Casa</MenuItem>
+                            <MenuItem value="store">Loja</MenuItem>
+                            <MenuItem value="garage">Garagem</MenuItem>
+                            <MenuItem value="kitnet">Kitnet</MenuItem>
+                            <MenuItem value="lot/land">Lote/Terreno</MenuItem>
+                            <MenuItem value="livingRoom">Sala</MenuItem>
+                        </Select>
+                    </FormControl>
+                    
+                    <Stack>
+                        <DialogBoxTextStyled>
+                            <TextField label="Área mínima:" InputLabelProps={{shrink: true}} size="small" />
+                        </DialogBoxTextStyled>
+                        
+                        <DialogBoxTextStyled>
+                            <TextField label="Área máxima:" InputLabelProps={{shrink: true}} size="small" />
+                        </DialogBoxTextStyled>
+                    </Stack>
+                    
+                    <Stack>
+                        <DialogBoxTextStyled>
+                            <TextField label="Valor mínimo:" InputLabelProps={{shrink: true}} size="small" />
+                        </DialogBoxTextStyled>
+                        
+                        <DialogBoxTextStyled>
+                            <TextField label="Valor máximo:" InputLabelProps={{shrink: true}} size="small" />
+                        </DialogBoxTextStyled>
+                    </Stack>
+                </DialogTextInputsStyled>
             </Dialog>
         </FilterStyled>
     );

@@ -1,5 +1,5 @@
-import { Chip, Dialog, FormControl, IconButton, InputLabel, MenuItem, Select, Slider, TextField, Typography } from "@mui/material";
-import { FC, useState } from "react";
+import { Chip, Dialog, FormControl, IconButton, InputLabel, MenuItem, Select, SelectChangeEvent, Slider, TextField, Typography } from "@mui/material";
+import { ChangeEvent, FC, useState } from "react";
 import { DataFilter } from "../interfaces/filter";
 import { DialogBoxSliderStyled, ChipsStyled, DialogChipsStyled, FilterStyled, DialogSlidersStyled, TitleStyled, DialogTextInputsStyled, DialogBoxTextStyled } from "../styles/components/filter";
 import CloseIcon from '@mui/icons-material/Close';
@@ -20,6 +20,12 @@ const Filter: FC<FilterProps> = (props) => {
     const [vacancyCar, setVacancyCar] = useState(0);
     const [people, setPeople] = useState(0);
     const [rooms, setRooms] = useState(0);
+    const [immobileType, setImmobileType] = useState("");
+    const [advertiserName, setAdvertiserName] = useState("");
+    const [minimumArea, setMinimumArea] = useState("");
+    const [maximumArea, setMaximumArea] = useState("");
+    const [minimumValue, setMinimumValue] = useState("");
+    const [maximumValue, setMaximumValue] = useState("");
 
     const handleClickAnimals = () => {
         let changeFilters = filters;
@@ -288,6 +294,30 @@ const Filter: FC<FilterProps> = (props) => {
         props.setFilters(changeFilters);
     };
 
+    const handleChangeImmobileType = (event: SelectChangeEvent<string>) => {
+        setImmobileType(event.target.value);
+    };
+
+    const handleChangeAdvertiserName = (event: ChangeEvent<HTMLInputElement>) => {
+        setAdvertiserName(event.target.value);
+    };
+
+    const handleChangeMinimumArea = (event: ChangeEvent<HTMLInputElement>) => {
+        setMinimumArea(event.target.value);
+    };
+
+    const handleChangeMaximumArea = (event: ChangeEvent<HTMLInputElement>) => {
+        setMaximumArea(event.target.value);
+    };
+
+    const handleChangeMinimumValue = (event: ChangeEvent<HTMLInputElement>) => {
+        setMinimumValue(event.target.value);
+    };
+
+    const handleChangeMaximumValue = (event: ChangeEvent<HTMLInputElement>) => {
+        setMaximumValue(event.target.value);
+    };
+
     const handleClickMoreFilters = () => {
         setOpen(true);
     };
@@ -441,7 +471,13 @@ const Filter: FC<FilterProps> = (props) => {
 
                 <DialogTextInputsStyled>
                     <DialogBoxTextStyled>
-                        <TextField label="Nome anunciante:" InputLabelProps={{shrink: true}} size="small" />
+                        <TextField
+                            label="Nome anunciante:"
+                            value={advertiserName}
+                            onChange={handleChangeAdvertiserName}
+                            size="small"
+                            InputLabelProps={{shrink: true}}
+                        />
                     </DialogBoxTextStyled>
 
                     <FormControl fullWidth>
@@ -450,8 +486,8 @@ const Filter: FC<FilterProps> = (props) => {
                             size="small"
                             labelId="immobile-type-label"
                             label="Tipo imóvel:"
-                            // value={age}
-                            // onChange={handleChange}
+                            value={immobileType}
+                            onChange={handleChangeImmobileType}
                         >
                             <MenuItem value="apartment">Apartamento</MenuItem>
                             <MenuItem value="house">Casa</MenuItem>
@@ -465,21 +501,45 @@ const Filter: FC<FilterProps> = (props) => {
                     
                     <Stack>
                         <DialogBoxTextStyled>
-                            <TextField label="Área mínima:" InputLabelProps={{shrink: true}} size="small" />
+                            <TextField
+                                label="Área mínima:"
+                                value={minimumArea}
+                                onChange={handleChangeMinimumArea}
+                                size="small"
+                                InputLabelProps={{shrink: true}}
+                            />
                         </DialogBoxTextStyled>
                         
                         <DialogBoxTextStyled>
-                            <TextField label="Área máxima:" InputLabelProps={{shrink: true}} size="small" />
+                            <TextField
+                                label="Área máxima:"
+                                value={maximumArea}
+                                onChange={handleChangeMaximumArea}
+                                size="small"
+                                InputLabelProps={{shrink: true}}
+                            />
                         </DialogBoxTextStyled>
                     </Stack>
                     
                     <Stack>
                         <DialogBoxTextStyled>
-                            <TextField label="Valor mínimo:" InputLabelProps={{shrink: true}} size="small" />
+                            <TextField
+                                label="Valor mínimo:"
+                                value={minimumValue}
+                                onChange={handleChangeMinimumValue}
+                                size="small"
+                                InputLabelProps={{shrink: true}}
+                            />
                         </DialogBoxTextStyled>
                         
                         <DialogBoxTextStyled>
-                            <TextField label="Valor máximo:" InputLabelProps={{shrink: true}} size="small" />
+                            <TextField
+                                label="Valor máximo:"
+                                value={maximumValue}
+                                onChange={handleChangeMaximumValue}
+                                size="small"
+                                InputLabelProps={{shrink: true}}
+                            />
                         </DialogBoxTextStyled>
                     </Stack>
                 </DialogTextInputsStyled>

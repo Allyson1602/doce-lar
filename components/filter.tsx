@@ -18,6 +18,7 @@ const Filter: FC<FilterProps> = (props) => {
     const [immobile, setImmobile] = useState(0);
     const [vacancyCar, setVacancyCar] = useState(0);
     const [people, setPeople] = useState(0);
+    const [rooms, setRooms] = useState(0);
 
     const handleClickAnimals = () => {
         let changeFilters = filters;
@@ -252,6 +253,40 @@ const Filter: FC<FilterProps> = (props) => {
         props.setFilters(changeFilters);
     };
 
+    const handleChangeRooms = (event: Event, value: number | number[], activeThumb: number) => {
+        setRooms(value as number);
+        
+        let changeFilters = filters;
+
+        switch(value) {
+            case 0:
+                changeFilters.rooms = 0;
+                break;
+
+            case 20:
+                changeFilters.rooms = 1;
+                break;
+
+            case 40:
+                changeFilters.rooms = 2;
+                break;
+
+            case 60:
+                changeFilters.rooms = 3;
+                break;
+
+            case 80:
+                changeFilters.rooms = 4;
+                break;
+
+            case 100:
+                changeFilters.rooms = 5;
+                break;
+        }
+
+        props.setFilters(changeFilters);
+    };
+
     const handleClickMoreFilters = () => {
         setOpen(true);
     };
@@ -391,11 +426,48 @@ const Filter: FC<FilterProps> = (props) => {
                             step={10}
                         />
                     </BoxSlider>
+                    
+                    <BoxSlider>
+                        <Typography>Quantidade quartos:</Typography>
+                        <Slider
+                            value={rooms}
+                            onChange={handleChangeRooms}
+                            marks={sliderMarksRooms}
+                            step={20}
+                        />
+                    </BoxSlider>
                 </SlidersStyled>
             </Dialog>
         </FilterStyled>
     );
 };
+
+let sliderMarksRooms = [
+    {
+      value: 0,
+      label: '0',
+    },
+    {
+      value: 20,
+      label: '1',
+    },
+    {
+      value: 40,
+      label: '2',
+    },
+    {
+      value: 60,
+      label: '3',
+    },
+    {
+      value: 80,
+      label: '4',
+    },
+    {
+      value: 100,
+      label: '5',
+    },
+];
 
 let sliderMarksPeople = [
     {

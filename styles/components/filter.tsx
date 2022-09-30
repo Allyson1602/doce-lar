@@ -93,8 +93,14 @@ export const ChipsStyled = styled(Stack)`
     };
 `;
 
-export const ButtonStyled = styled(Button)`
+export const GroupButtonsStyled = styled(Stack)`
+    justify-content: space-between;
     margin-bottom: ${props => (props.theme as ITheme).spacing(3)};
-    color: ${props => (props.theme as ITheme).palette.common.white};
-    float: right;
+`;
+
+export const ButtonStyled = styled(Button)`
+
+    :last-child {
+        color: ${props => (props.theme as ITheme).palette.common.white};
+    }
 `;

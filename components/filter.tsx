@@ -1,7 +1,7 @@
 import { Chip, FormControl, IconButton, InputLabel, MenuItem, Select, SelectChangeEvent, Slider, TextField, Typography } from "@mui/material";
 import { ChangeEvent, FC, useState } from "react";
 import { DataFilter } from "../interfaces/filter";
-import { DialogBoxSliderStyled, ChipsStyled, DialogChipsStyled, FilterStyled, DialogSlidersStyled, TitleStyled, DialogTextInputsStyled, DialogBoxTextStyled, DialogStyled, ContentDialogStyled, ButtonStyled } from "../styles/components/filter";
+import { DialogBoxSliderStyled, ChipsStyled, DialogChipsStyled, FilterStyled, DialogSlidersStyled, TitleStyled, DialogTextInputsStyled, DialogBoxTextStyled, DialogStyled, ContentDialogStyled, ButtonStyled, GroupButtonsStyled } from "../styles/components/filter";
 import CloseIcon from '@mui/icons-material/Close';
 import { Stack } from "@mui/system";
 
@@ -354,7 +354,7 @@ const Filter: FC<FilterProps> = (props) => {
         setOpen(false);
     };
 
-    const handleClickFilter = () => {
+    const handleClickUseFilter = () => {
         console.log(filters);
     };
 
@@ -554,6 +554,7 @@ const Filter: FC<FilterProps> = (props) => {
                                     value={filters.minimumArea || ""}
                                     onChange={handleChangeMinimumArea}
                                     size="small"
+                                    color="secondary"
                                     InputLabelProps={{shrink: true}}
                                 />
                             </DialogBoxTextStyled>
@@ -564,6 +565,7 @@ const Filter: FC<FilterProps> = (props) => {
                                     value={filters.maximumArea || ""}
                                     onChange={handleChangeMaximumArea}
                                     size="small"
+                                    color="secondary"
                                     InputLabelProps={{shrink: true}}
                                 />
                             </DialogBoxTextStyled>
@@ -576,6 +578,7 @@ const Filter: FC<FilterProps> = (props) => {
                                     value={filters.minimumValue || ""}
                                     onChange={handleChangeMinimumValue}
                                     size="small"
+                                    color="secondary"
                                     InputLabelProps={{shrink: true}}
                                 />
                             </DialogBoxTextStyled>
@@ -586,18 +589,28 @@ const Filter: FC<FilterProps> = (props) => {
                                     value={filters.maximumValue || ""}
                                     onChange={handleChangeMaximumValue}
                                     size="small"
+                                    color="secondary"
                                     InputLabelProps={{shrink: true}}
                                 />
                             </DialogBoxTextStyled>
                         </Stack>
                     </DialogTextInputsStyled>
 
-                    <ButtonStyled
-                        variant="contained"
-                        color="secondary"
-                        size="large"
-                        onClick={handleClickFilter}
-                    >filtrar</ButtonStyled>
+                    <GroupButtonsStyled direction="row">
+                        <ButtonStyled
+                            sx={{opacity: 0}}
+                            variant="outlined"
+                            color="secondary"
+                            size="large"
+                        >limpar</ButtonStyled>
+
+                        <ButtonStyled
+                            variant="contained"
+                            color="secondary"
+                            size="large"
+                            onClick={handleClickUseFilter}
+                        >filtrar</ButtonStyled>
+                    </GroupButtonsStyled>
                 </ContentDialogStyled>
             </DialogStyled>
         </FilterStyled>

@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import { Box, Container, Dialog, Stack, Typography } from "@mui/material";
+import { Box, Button, Container, Dialog, Stack, Typography } from "@mui/material";
 import { ITheme } from "../../themes/themes";
 
 export const FilterStyled = styled(Container)``;
@@ -57,7 +57,8 @@ export const DialogTextInputsStyled = styled(Stack)`
 
 export const DialogBoxTextStyled = styled(Box)`
     #immobile-type-label {
-        font-size: 13px;
+        font-size: 12px;
+        top: -4px;
     };
 
     .MuiTextField-root, .MuiFormControl-root {
@@ -90,4 +91,10 @@ export const ChipsStyled = styled(Stack)`
         background-color: ${props => (props.theme as ITheme).palette.secondary.light};
         color: ${props => (props.theme as ITheme).palette.common.black};
     };
+`;
+
+export const ButtonStyled = styled(Button)`
+    margin-bottom: ${props => (props.theme as ITheme).spacing(3)};
+    color: ${props => (props.theme as ITheme).palette.common.white};
+    float: right;
 `;

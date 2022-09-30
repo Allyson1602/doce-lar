@@ -15,8 +15,8 @@ export interface DataFilter {
     vacancyCar: number;
     people: number;
     rooms: number;
-    areaMinimum: number;
-    areaMaximum: number;
+    minimumArea: number;
+    maximumArea: number;
     minimumValue: number;
     maximumValue: number;
     advertiserName: string;

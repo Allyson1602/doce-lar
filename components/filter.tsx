@@ -1,7 +1,7 @@
-import { Chip, Dialog, FormControl, IconButton, InputLabel, MenuItem, Select, SelectChangeEvent, Slider, TextField, Typography } from "@mui/material";
+import { Button, Chip, Dialog, FormControl, IconButton, InputLabel, MenuItem, Select, SelectChangeEvent, Slider, TextField, Typography } from "@mui/material";
 import { ChangeEvent, FC, useState } from "react";
 import { DataFilter } from "../interfaces/filter";
-import { DialogBoxSliderStyled, ChipsStyled, DialogChipsStyled, FilterStyled, DialogSlidersStyled, TitleStyled, DialogTextInputsStyled, DialogBoxTextStyled, DialogStyled, ContentDialogStyled } from "../styles/components/filter";
+import { DialogBoxSliderStyled, ChipsStyled, DialogChipsStyled, FilterStyled, DialogSlidersStyled, TitleStyled, DialogTextInputsStyled, DialogBoxTextStyled, DialogStyled, ContentDialogStyled, ButtonStyled } from "../styles/components/filter";
 import CloseIcon from '@mui/icons-material/Close';
 import { Stack } from "@mui/system";
 
@@ -20,12 +20,6 @@ const Filter: FC<FilterProps> = (props) => {
     const [vacancyCar, setVacancyCar] = useState(0);
     const [people, setPeople] = useState(0);
     const [rooms, setRooms] = useState(0);
-    const [immobileType, setImmobileType] = useState("");
-    const [advertiserName, setAdvertiserName] = useState("");
-    const [minimumArea, setMinimumArea] = useState("");
-    const [maximumArea, setMaximumArea] = useState("");
-    const [minimumValue, setMinimumValue] = useState("");
-    const [maximumValue, setMaximumValue] = useState("");
 
     const handleClickAnimals = () => {
         let changeFilters = filters;
@@ -295,27 +289,61 @@ const Filter: FC<FilterProps> = (props) => {
     };
 
     const handleChangeImmobileType = (event: SelectChangeEvent<string>) => {
-        setImmobileType(event.target.value);
+        let changeFilters = filters;
+        changeFilters.immobileType = event.target.value;
+
+        props.setFilters(changeFilters);
     };
 
     const handleChangeAdvertiserName = (event: ChangeEvent<HTMLInputElement>) => {
-        setAdvertiserName(event.target.value);
+        let changeFilters = filters;
+        changeFilters.advertiserName = event.target.value;
+
+        props.setFilters(changeFilters);
     };
 
     const handleChangeMinimumArea = (event: ChangeEvent<HTMLInputElement>) => {
-        setMinimumArea(event.target.value);
+        let value = parseInt(event.target.value);
+
+        if(!isNaN(value)) {
+            let changeFilters = filters;
+            changeFilters.minimumArea = value;
+
+            props.setFilters(changeFilters);
+        }
     };
 
     const handleChangeMaximumArea = (event: ChangeEvent<HTMLInputElement>) => {
-        setMaximumArea(event.target.value);
+        let value = parseInt(event.target.value);
+        
+        if(!isNaN(value)) {
+            let changeFilters = filters;
+            changeFilters.maximumArea = value;
+
+            props.setFilters(changeFilters);
+        }
     };
 
     const handleChangeMinimumValue = (event: ChangeEvent<HTMLInputElement>) => {
-        setMinimumValue(event.target.value);
+        let value = parseInt(event.target.value);
+        
+        if(!isNaN(value)) {
+            let changeFilters = filters;
+            changeFilters.minimumValue = value;
+
+            props.setFilters(changeFilters);
+        }
     };
 
     const handleChangeMaximumValue = (event: ChangeEvent<HTMLInputElement>) => {
-        setMaximumValue(event.target.value);
+        let value = parseInt(event.target.value);
+        
+        if(!isNaN(value)) {
+            let changeFilters = filters;
+            changeFilters.maximumValue = value;
+
+            props.setFilters(changeFilters);
+        }
     };
 
     const handleClickMoreFilters = () => {
@@ -324,6 +352,10 @@ const Filter: FC<FilterProps> = (props) => {
 
     const handleCloseDialog = () => {
         setOpen(false);
+    };
+
+    const handleClickFilter = () => {
+        console.log(filters);
     };
 
     return (
@@ -485,7 +517,7 @@ const Filter: FC<FilterProps> = (props) => {
                         <DialogBoxTextStyled>
                             <TextField
                                 label="Nome anunciante:"
-                                value={advertiserName}
+                                value={filters.advertiserName}
                                 onChange={handleChangeAdvertiserName}
                                 size="small"
                                 color="secondary"
@@ -501,7 +533,7 @@ const Filter: FC<FilterProps> = (props) => {
                                     size="small"
                                     labelId="immobile-type-label"
                                     label="Tipo imóvel:"
-                                    value={immobileType}
+                                    value={filters.immobileType}
                                     onChange={handleChangeImmobileType}
                                 >
                                     <MenuItem value="apartment">Apartamento</MenuItem>
@@ -519,7 +551,7 @@ const Filter: FC<FilterProps> = (props) => {
                             <DialogBoxTextStyled>
                                 <TextField
                                     label="Área mínima:"
-                                    value={minimumArea}
+                                    value={filters.minimumArea}
                                     onChange={handleChangeMinimumArea}
                                     size="small"
                                     InputLabelProps={{shrink: true}}
@@ -529,7 +561,7 @@ const Filter: FC<FilterProps> = (props) => {
                             <DialogBoxTextStyled>
                                 <TextField
                                     label="Área máxima:"
-                                    value={maximumArea}
+                                    value={filters.maximumArea}
                                     onChange={handleChangeMaximumArea}
                                     size="small"
                                     InputLabelProps={{shrink: true}}
@@ -541,7 +573,7 @@ const Filter: FC<FilterProps> = (props) => {
                             <DialogBoxTextStyled>
                                 <TextField
                                     label="Valor mínimo:"
-                                    value={minimumValue}
+                                    value={filters.minimumValue}
                                     onChange={handleChangeMinimumValue}
                                     size="small"
                                     InputLabelProps={{shrink: true}}
@@ -551,7 +583,7 @@ const Filter: FC<FilterProps> = (props) => {
                             <DialogBoxTextStyled>
                                 <TextField
                                     label="Valor máximo:"
-                                    value={maximumValue}
+                                    value={filters.maximumValue}
                                     onChange={handleChangeMaximumValue}
                                     size="small"
                                     InputLabelProps={{shrink: true}}
@@ -559,6 +591,13 @@ const Filter: FC<FilterProps> = (props) => {
                             </DialogBoxTextStyled>
                         </Stack>
                     </DialogTextInputsStyled>
+
+                    <ButtonStyled
+                        variant="contained"
+                        color="secondary"
+                        size="large"
+                        onClick={handleClickFilter}
+                    >filtrar</ButtonStyled>
                 </ContentDialogStyled>
             </DialogStyled>
         </FilterStyled>

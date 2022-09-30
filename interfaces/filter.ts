@@ -10,15 +10,15 @@ export interface DataFilter {
     airconditioning: boolean;
     internet: boolean;
     security: boolean;
-    bathrooms: number;
-    floorImmobile: number;
-    vacancyCar: number;
-    people: number;
-    rooms: number;
-    minimumArea: number;
-    maximumArea: number;
-    minimumValue: number;
-    maximumValue: number;
+    bathrooms: number | null;
+    floorImmobile: number | null;
+    vacancyCar: number | null;
+    people: number | null;
+    rooms: number | null;
+    minimumArea: number | null;
+    maximumArea: number | null;
+    minimumValue: number | null;
+    maximumValue: number | null;
     advertiserName: string;
     immobileType: string;
 }

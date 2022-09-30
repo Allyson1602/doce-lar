@@ -1,4 +1,4 @@
-import { Button, Chip, Dialog, FormControl, IconButton, InputLabel, MenuItem, Select, SelectChangeEvent, Slider, TextField, Typography } from "@mui/material";
+import { Chip, FormControl, IconButton, InputLabel, MenuItem, Select, SelectChangeEvent, Slider, TextField, Typography } from "@mui/material";
 import { ChangeEvent, FC, useState } from "react";
 import { DataFilter } from "../interfaces/filter";
 import { DialogBoxSliderStyled, ChipsStyled, DialogChipsStyled, FilterStyled, DialogSlidersStyled, TitleStyled, DialogTextInputsStyled, DialogBoxTextStyled, DialogStyled, ContentDialogStyled, ButtonStyled } from "../styles/components/filter";

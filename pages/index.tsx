@@ -8,6 +8,7 @@ import Layout from '../components/layout';
 import { dataFilter } from '../model/filter';
 import { DataFilter } from '../interfaces/filter';
 import Filter from '../components/filter';
+import Order from '../components/order';
 
 const ListRentals: NextPageWithLayout = () => {
 
@@ -21,13 +22,13 @@ const ListRentals: NextPageWithLayout = () => {
     <Box sx={{backgroundColor: (theme) => theme.palette.secondary.main}}>
       <Filter filters={filters} setFilters={changeFilters} />
 
-      {/* <Order />
+      <Order />
 
-      {rentals.map(rent => <Rent datas={rent} />)}
+      {/* {rentals.map(rent => <Rent datas={rent} />)} */}
 
-      <Button>nossa recomendação de aluguel</Button>
+      {/* <Button>nossa recomendação de aluguel</Button> */}
 
-      <Pagination /> */}
+      {/* <Pagination /> */}
     </Box>
   )
 };

@@ -1,6 +1,6 @@
 import { DataFilter } from "../interfaces/filter";
 
-export let dataFilter: DataFilter = {
+export const dataFilter: DataFilter = {
     animals: false,
     kids: false,
     garage: false,

@@ -355,7 +355,7 @@ const Filter: FC<FilterProps> = (props) => {
     };
 
     const handleClickUseFilter = () => {
-        console.log(filters);
+        setOpen(false);
     };
 
     return (
@@ -366,19 +366,19 @@ const Filter: FC<FilterProps> = (props) => {
                 <Chip
                     size="small"
                     label="animais"
-                    variant={filters.animals ? "outlined" : "filled"}
+                    variant={filters.animals ? "filled" : "outlined"}
                     onClick={handleClickAnimals}
                 />
                 <Chip
                     size="small"
                     label="crianças"
-                    variant={filters.kids ? "outlined" : "filled"}
+                    variant={filters.kids ? "filled" : "outlined"}
                     onClick={handleClickKids}
                 />
                 <Chip
                     size="small"
                     label="garagem"
-                    variant={filters.garage ? "outlined" : "filled"}
+                    variant={filters.garage ? "filled" : "outlined"}
                     onClick={handleClickGarage}
                 />
                 <Chip

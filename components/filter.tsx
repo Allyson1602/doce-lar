@@ -409,49 +409,49 @@ const Filter: FC<FilterProps> = (props) => {
                         <Chip
                             label="mobiliado"
                             className="dialog__chip"
-                            variant={filters.furnished ? "outlined" : "filled"}
+                            variant={filters.furnished ? "filled" : "outlined"}
                             onClick={handleClickFurnished}
                         />
                         <Chip
                             label="churrasqueira"
                             className="dialog__chip"
-                            variant={filters.barbecue ? "outlined" : "filled"}
+                            variant={filters.barbecue ? "filled" : "outlined"}
                             onClick={handleClickBarbecue}
                         />
                         <Chip
                             label="piscina"
                             className="dialog__chip"
-                            variant={filters.swimmingPool ? "outlined" : "filled"}
+                            variant={filters.swimmingPool ? "filled" : "outlined"}
                             onClick={handleClickSwimmingPool}
                         />
                         <Chip
                             label="varanda"
                             className="dialog__chip"
-                            variant={filters.porch ? "outlined" : "filled"}
+                            variant={filters.porch ? "filled" : "outlined"}
                             onClick={handleClickPorch}
                         />
                         <Chip
                             label="jardim"
                             className="dialog__chip"
-                            variant={filters.garden ? "outlined" : "filled"}
+                            variant={filters.garden ? "filled" : "outlined"}
                             onClick={handleClickGarden}
                         />
                         <Chip
                             label="ar-condicionado"
                             className="dialog__chip"
-                            variant={filters.airconditioning ? "outlined" : "filled"}
+                            variant={filters.airconditioning ? "filled" : "outlined"}
                             onClick={handleClickAirconditioning}
                         />
                         <Chip
                             label="internet"
                             className="dialog__chip"
-                            variant={filters.internet ? "outlined" : "filled"}
+                            variant={filters.internet ? "filled" : "outlined"}
                             onClick={handleClickInternet}
                         />
                         <Chip
                             label="seguro"
                             className="dialog__chip"
-                            variant={filters.security ? "outlined" : "filled"}
+                            variant={filters.security ? "filled" : "outlined"}
                             onClick={handleClickSecurity}
                         />
                     </DialogChipsStyled>
@@ -551,7 +551,7 @@ const Filter: FC<FilterProps> = (props) => {
                             <DialogBoxTextStyled>
                                 <TextField
                                     label="Área mínima:"
-                                    value={filters.minimumArea}
+                                    value={filters.minimumArea || ""}
                                     onChange={handleChangeMinimumArea}
                                     size="small"
                                     InputLabelProps={{shrink: true}}
@@ -561,7 +561,7 @@ const Filter: FC<FilterProps> = (props) => {
                             <DialogBoxTextStyled>
                                 <TextField
                                     label="Área máxima:"
-                                    value={filters.maximumArea}
+                                    value={filters.maximumArea || ""}
                                     onChange={handleChangeMaximumArea}
                                     size="small"
                                     InputLabelProps={{shrink: true}}
@@ -573,7 +573,7 @@ const Filter: FC<FilterProps> = (props) => {
                             <DialogBoxTextStyled>
                                 <TextField
                                     label="Valor mínimo:"
-                                    value={filters.minimumValue}
+                                    value={filters.minimumValue || ""}
                                     onChange={handleChangeMinimumValue}
                                     size="small"
                                     InputLabelProps={{shrink: true}}
@@ -583,7 +583,7 @@ const Filter: FC<FilterProps> = (props) => {
                             <DialogBoxTextStyled>
                                 <TextField
                                     label="Valor máximo:"
-                                    value={filters.maximumValue}
+                                    value={filters.maximumValue || ""}
                                     onChange={handleChangeMaximumValue}
                                     size="small"
                                     InputLabelProps={{shrink: true}}

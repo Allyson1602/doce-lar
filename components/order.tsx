@@ -1,7 +1,7 @@
 import { Chip } from "@mui/material";
 import { FC, useState } from "react";
 import { DataOrder } from "../interfaces/orders";
-import { dataOrder } from "../model/order";
+import { dataOrder } from "../models/order";
 import { ChipsStyled, OrderStyled, TitleStyled } from "../styles/components/order";
 
 interface OrderProps {
@@ -51,7 +51,7 @@ const Order: FC<OrderProps> = (props) => {
 
     return (
         <OrderStyled>
-            <TitleStyled variant="subtitle2">Ordernar por:</TitleStyled>
+            <TitleStyled variant="body2">Ordernar por:</TitleStyled>
             
             <ChipsStyled>
                 <Chip

@@ -365,7 +365,7 @@ const Filter: FC<FilterProps> = (props) => {
 
     return (
         <FilterStyled className="filter">
-            <TitleStyled variant="subtitle2">Filtros:</TitleStyled>
+            <TitleStyled variant="body2">Filtros:</TitleStyled>
 
             <ChipsStyled>
                 <Chip

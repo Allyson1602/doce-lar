@@ -6,6 +6,7 @@ export const FilterStyled = styled(Container)``;
 
 export const TitleStyled = styled(Typography)`
     color: ${props => (props.theme as ITheme).palette.common.white};
+    margin-bottom: ${props => (props.theme as ITheme).spacing(1)};
 `;
 
 export const DialogStyled = styled(Dialog)`

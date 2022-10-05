@@ -13,6 +13,7 @@ import { dataOrder } from '../models/order';
 import { ConfigsGetRentalsStyled, ListRentalsStyled } from '../styles/pages/listRentals';
 import { DataRentals } from '../interfaces/rentals';
 import Rental from '../services/rental';
+import RentDemo from '../components/rentDemo';
 
 const ListRentals: NextPageWithLayout = () => {
 
@@ -46,13 +47,12 @@ const ListRentals: NextPageWithLayout = () => {
   
   return (
     <ListRentalsStyled>
-
       <ConfigsGetRentalsStyled>
         <Filter filters={filters} setFilters={changeFilters} />
         <Order orders={orders} setOrders={changeOrders} />
       </ConfigsGetRentalsStyled>
 
-      {rentals.map(rent => <Rent datas={rent} />)}
+      {rentals.map(rent => <RentDemo key={rent.id} data={rent} />)}
 
       {/* <Button>nossa recomendação de aluguel</Button> */}
 

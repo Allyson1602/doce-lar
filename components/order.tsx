@@ -1,7 +1,6 @@
 import { Chip } from "@mui/material";
 import { FC, useState } from "react";
 import { DataOrder } from "../interfaces/orders";
-import { dataOrder } from "../models/order";
 import { ChipsStyled, OrderStyled, TitleStyled } from "../styles/components/order";
 
 interface OrderProps {

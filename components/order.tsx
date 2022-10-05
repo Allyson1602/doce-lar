@@ -5,11 +5,13 @@ import { dataOrder } from "../model/order";
 import { ChipsStyled, OrderStyled, TitleStyled } from "../styles/components/order";
 
 interface OrderProps {
-    
+    orders: DataOrder;
+    setOrders: (orders: DataOrder) => void;
 }
 
 const Order: FC<OrderProps> = (props) => {
-    const [orders, setOrders] = useState<DataOrder>(dataOrder);
+
+    const [orders] = useState<DataOrder>(props.orders);
 
     const handleClickRelevance = () => {
         let changeOrders = orders;
@@ -20,7 +22,7 @@ const Order: FC<OrderProps> = (props) => {
             changeOrders.lowestPrice = false;
         }
 
-        setOrders({...changeOrders});
+        props.setOrders(changeOrders);
     };
 
     const handleClickHigherPrice = () => {
@@ -32,7 +34,7 @@ const Order: FC<OrderProps> = (props) => {
             changeOrders.lowestPrice = false;
         }
 
-        setOrders({...changeOrders});
+        props.setOrders(changeOrders);
     };
 
     const handleClickLowestPrice = () => {
@@ -44,7 +46,7 @@ const Order: FC<OrderProps> = (props) => {
             changeOrders.higherPrice = false;
         }
 
-        setOrders({...changeOrders});
+        props.setOrders(changeOrders);
     };
 
     return (

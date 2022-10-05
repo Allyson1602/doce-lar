@@ -4,25 +4,31 @@ import { ReactElement, useState } from 'react';
 import type { NextPageWithLayout } from './_app';
 import NavBar from '../components/globals/navBar';
 import Layout from '../components/layout';
-
-import { dataFilter } from '../model/filter';
-import { DataFilter } from '../interfaces/filter';
 import Filter from '../components/filter';
 import Order from '../components/order';
+import { dataFilter } from '../model/filter';
+import { DataFilter } from '../interfaces/filter';
+import { DataOrder } from '../interfaces/orders';
+import { dataOrder } from '../model/order';
 
 const ListRentals: NextPageWithLayout = () => {
 
-  const [filters, setFilters] = useState(dataFilter);
+  const [filters, setFilters] = useState<DataFilter>(dataFilter);
+  const [orders, setOrders] = useState<DataOrder>(dataOrder);
 
   const changeFilters = (newFilters: DataFilter) => {
     setFilters({...newFilters});
+  };
+  
+  const changeOrders = (newOrders: DataOrder) => {
+    setOrders({...newOrders});
   };
   
   return (
     <Box sx={{backgroundColor: (theme) => theme.palette.secondary.main}}>
       <Filter filters={filters} setFilters={changeFilters} />
 
-      <Order />
+      <Order orders={orders} setOrders={changeOrders} />
 
       {/* {rentals.map(rent => <Rent datas={rent} />)} */}
 

@@ -12,7 +12,7 @@ interface FilterProps {
 
 const Filter: FC<FilterProps> = (props) => {
 
-    const [filters] = useState(props.filters);
+    const [filters] = useState<DataFilter>(props.filters);
     const [open, setOpen] = useState(false);
 
     const [bathrooms, setBathrooms] = useState(0);

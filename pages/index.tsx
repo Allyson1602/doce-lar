@@ -36,7 +36,11 @@ const ListRentals: NextPageWithLayout = () => {
   const getRentals = useCallback(
     () => {
       getService().getRentals().then((rentals) => {
-        setRentals(rentals);
+        if(rentals.data.length > 0) {
+          setRentals(rentals.data);
+        }
+      }).catch((error) => {
+        console.log("Não foi possível buscar aluguéis"); // snackbar
       });
     }, [getService]
   );

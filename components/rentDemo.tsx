@@ -1,3 +1,4 @@
+import { Typography } from "@mui/material";
 import { FC } from "react";
 
 import { DataRentals } from "../interfaces/rentals";
@@ -7,9 +8,11 @@ interface RendDemoProps {
     data: DataRentals;
 }
 
-const RentDemo: FC<RendDemoProps> = (props) => {
+const RentDemo: FC<RendDemoProps> = ({data}) => {
     return (
-        <RentDemoStyled></RentDemoStyled>
+        <RentDemoStyled>
+            <Typography>{data.price}</Typography>
+        </RentDemoStyled>
     );
 };
 

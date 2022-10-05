@@ -1,5 +1,5 @@
 import { Box } from '@mui/material';
-import { ReactElement, useState } from 'react';
+import { ReactElement, useEffect, useState } from 'react';
 
 import type { NextPageWithLayout } from './_app';
 import NavBar from '../components/globals/navBar';
@@ -23,6 +23,10 @@ const ListRentals: NextPageWithLayout = () => {
   const changeOrders = (newOrders: DataOrder) => {
     setOrders({...newOrders});
   };
+
+  useEffect(() => {
+    console.log(filters);
+  }, [filters]);
   
   return (
     <Box sx={{backgroundColor: (theme) => theme.palette.secondary.main}}>

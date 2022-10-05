@@ -12,7 +12,7 @@ interface FilterProps {
 
 const Filter: FC<FilterProps> = (props) => {
 
-    const [filters] = useState<DataFilter>(props.filters);
+    const [filters, setFilters] = useState<DataFilter>(props.filters);
     const [open, setOpen] = useState(false);
 
     const [bathrooms, setBathrooms] = useState(0);
@@ -46,56 +46,56 @@ const Filter: FC<FilterProps> = (props) => {
         let changeFilters = filters;
         changeFilters.furnished = !changeFilters.furnished;
 
-        props.setFilters(changeFilters);
+        setFilters({...changeFilters});
     };
     
     const handleClickBarbecue = () => {
         let changeFilters = filters;
         changeFilters.barbecue = !changeFilters.barbecue;
 
-        props.setFilters(changeFilters);
+        setFilters({...changeFilters});
     };
     
     const handleClickSwimmingPool = () => {
         let changeFilters = filters;
         changeFilters.swimmingPool = !changeFilters.swimmingPool;
 
-        props.setFilters(changeFilters);
+        setFilters({...changeFilters});
     };
     
     const handleClickPorch = () => {
         let changeFilters = filters;
         changeFilters.porch = !changeFilters.porch;
 
-        props.setFilters(changeFilters);
+        setFilters({...changeFilters});
     };
     
     const handleClickGarden = () => {
         let changeFilters = filters;
         changeFilters.garden = !changeFilters.garden;
 
-        props.setFilters(changeFilters);
+        setFilters({...changeFilters});
     };
     
     const handleClickAirconditioning = () => {
         let changeFilters = filters;
         changeFilters.airconditioning = !changeFilters.airconditioning;
 
-        props.setFilters(changeFilters);
+        setFilters({...changeFilters});
     };
     
     const handleClickInternet = () => {
         let changeFilters = filters;
         changeFilters.internet = !changeFilters.internet;
 
-        props.setFilters(changeFilters);
+        setFilters({...changeFilters});
     };
     
     const handleClickSecurity = () => {
         let changeFilters = filters;
         changeFilters.security = !changeFilters.security;
 
-        props.setFilters(changeFilters);
+        setFilters({...changeFilters});
     };
 
     const handleChangeBathrooms = (event: Event, value: number | number[], activeThumb: number) => {
@@ -129,7 +129,7 @@ const Filter: FC<FilterProps> = (props) => {
                 break;
         }
 
-        props.setFilters(changeFilters);
+        setFilters({...changeFilters});
     };
 
     const handleChangeImmobile = (event: Event, value: number | number[], activeThumb: number) => {
@@ -183,7 +183,7 @@ const Filter: FC<FilterProps> = (props) => {
                 break;
         }
 
-        props.setFilters(changeFilters);
+        setFilters({...changeFilters});
     };
 
     const handleChangeVacancyCar = (event: Event, value: number | number[], activeThumb: number) => {
@@ -217,7 +217,7 @@ const Filter: FC<FilterProps> = (props) => {
                 break;
         }
 
-        props.setFilters(changeFilters);
+        setFilters({...changeFilters});
     };
 
     const handleChangePeople = (event: Event, value: number | number[], activeThumb: number) => {
@@ -251,7 +251,7 @@ const Filter: FC<FilterProps> = (props) => {
                 break;
         }
 
-        props.setFilters(changeFilters);
+        setFilters({...changeFilters});
     };
 
     const handleChangeRooms = (event: Event, value: number | number[], activeThumb: number) => {
@@ -285,21 +285,21 @@ const Filter: FC<FilterProps> = (props) => {
                 break;
         }
 
-        props.setFilters(changeFilters);
+        setFilters({...changeFilters});
     };
 
     const handleChangeImmobileType = (event: SelectChangeEvent<string>) => {
         let changeFilters = filters;
         changeFilters.immobileType = event.target.value;
 
-        props.setFilters(changeFilters);
+        setFilters({...changeFilters});
     };
 
     const handleChangeAdvertiserName = (event: ChangeEvent<HTMLInputElement>) => {
         let changeFilters = filters;
         changeFilters.advertiserName = event.target.value;
 
-        props.setFilters(changeFilters);
+        setFilters({...changeFilters});
     };
 
     const handleChangeMinimumArea = (event: ChangeEvent<HTMLInputElement>) => {
@@ -309,7 +309,7 @@ const Filter: FC<FilterProps> = (props) => {
             let changeFilters = filters;
             changeFilters.minimumArea = value;
 
-            props.setFilters(changeFilters);
+            setFilters({...changeFilters});
         }
     };
 
@@ -320,7 +320,7 @@ const Filter: FC<FilterProps> = (props) => {
             let changeFilters = filters;
             changeFilters.maximumArea = value;
 
-            props.setFilters(changeFilters);
+            setFilters({...changeFilters});
         }
     };
 
@@ -331,7 +331,7 @@ const Filter: FC<FilterProps> = (props) => {
             let changeFilters = filters;
             changeFilters.minimumValue = value;
 
-            props.setFilters(changeFilters);
+            setFilters({...changeFilters});
         }
     };
 
@@ -342,7 +342,7 @@ const Filter: FC<FilterProps> = (props) => {
             let changeFilters = filters;
             changeFilters.maximumValue = value;
 
-            props.setFilters(changeFilters);
+            setFilters({...changeFilters});
         }
     };
 
@@ -354,9 +354,14 @@ const Filter: FC<FilterProps> = (props) => {
         setOpen(false);
     };
 
-    const handleClickUseFilter = () => {
+    const handleClickChangeFilter = () => {
+        changeFilters();
         setOpen(false);
     };
+
+    const changeFilters = () => {
+        props.setFilters(filters);
+    }
 
     return (
         <FilterStyled className="filter">
@@ -608,7 +613,7 @@ const Filter: FC<FilterProps> = (props) => {
                             variant="contained"
                             color="secondary"
                             size="large"
-                            onClick={handleClickUseFilter}
+                            onClick={handleClickChangeFilter}
                         >filtrar</ButtonStyled>
                     </GroupButtonsStyled>
                 </ContentDialogStyled>

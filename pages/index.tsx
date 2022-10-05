@@ -1,5 +1,5 @@
 import { Box, Stack } from '@mui/material';
-import { ReactElement, useState } from 'react';
+import { ReactElement, useCallback, useEffect, useState } from 'react';
 
 import type { NextPageWithLayout } from './_app';
 import NavBar from '../components/globals/navBar';
@@ -11,11 +11,14 @@ import { DataFilter } from '../interfaces/filter';
 import { DataOrder } from '../interfaces/orders';
 import { dataOrder } from '../models/order';
 import { ConfigsGetRentalsStyled, ListRentalsStyled } from '../styles/pages/listRentals';
+import { DataRentals } from '../interfaces/rentals';
+import Rental from '../services/rental';
 
 const ListRentals: NextPageWithLayout = () => {
 
   const [filters, setFilters] = useState<DataFilter>(dataFilter);
   const [orders, setOrders] = useState<DataOrder>(dataOrder);
+  const [rentals, setRentals] = useState<DataRentals[]>([]);
 
   const changeFilters = (newFilters: DataFilter) => {
     setFilters({...newFilters});
@@ -24,6 +27,22 @@ const ListRentals: NextPageWithLayout = () => {
   const changeOrders = (newOrders: DataOrder) => {
     setOrders({...newOrders});
   };
+
+  const getService = useCallback(
+    () => new Rental(), []
+  );
+
+  const getRentals = useCallback(
+    () => {
+      getService().getRentals().then((rentals) => {
+        setRentals(rentals);
+      });
+    }, [getService]
+  );
+
+  useEffect(() => {
+    getRentals();
+  }, [getRentals]);
   
   return (
     <ListRentalsStyled>

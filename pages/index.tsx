@@ -56,7 +56,9 @@ const ListRentals: NextPageWithLayout = () => {
         <Order orders={orders} setOrders={changeOrders} />
       </ConfigsGetRentalsStyled>
 
-      {rentals.map(rent => <RentDemo key={rent.id} data={rent} />)}
+      <RentDemo key={"100"} data={rentals[0]} />
+      <RentDemo key={"200"} data={rentals[0]} />
+      {/* {rentals.map(rent => <RentDemo key={rent.id} data={rent} />)} */}
 
       {/* <Button>nossa recomendação de aluguel</Button> */}
 

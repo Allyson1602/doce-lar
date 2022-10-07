@@ -1,3 +1,4 @@
+import { IconButton } from "@mui/material";
 import { FC } from "react";
 import { Pagination } from "swiper";
 
@@ -27,7 +28,9 @@ const RentDemo: FC<RendDemoProps> = ({data}) => {
             </SwiperStyled>
 
             <RentUtilsStyled>
-                <DoubleArrowIconStyled />
+                <IconButton onClick={() => console.log('clicado')} sx={{zIndex: 2}}>
+                    <DoubleArrowIconStyled />
+                </IconButton>
             </RentUtilsStyled>
         </RentDemoStyled>
     );

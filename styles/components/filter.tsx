@@ -22,7 +22,6 @@ export const DialogChipsStyled = styled(Stack)`
     flex-direction: row;
     max-width: 100vw;
     flex-wrap: wrap;
-    justify-content: center;
     gap: ${props => (props.theme as ITheme).spacing(1)};
     margin-top: ${props => (props.theme as ITheme).spacing(6)};
     margin-bottom: ${props => (props.theme as ITheme).spacing(2)};

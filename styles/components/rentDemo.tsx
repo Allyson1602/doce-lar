@@ -47,7 +47,7 @@ export const SwiperSlideStyled = styled(SwiperSlide)`
 
 export const RentUtilsStyled = styled(Box)`
     width: 100%;
-    height: 50px;
+    height: 38px;
     position: absolute;
     bottom: 0;
     display: flex;
@@ -58,6 +58,21 @@ export const RentUtilsStyled = styled(Box)`
 
 export const DoubleArrowIconStyled = styled(DoubleArrowIcon)`
     transform: rotate(270deg);
-    font-size: 2.5rem;
+    font-size: 1.7rem;
     color: ${props => (props.theme as ITheme).palette.primary.main};
+    
+    animation-name: moviment;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-timing-function: linear;
+
+    @keyframes moviment {
+        from {
+            margin-bottom: 0px;
+        }
+        to {
+            margin-bottom: 10px;
+        }
+    }
 `;

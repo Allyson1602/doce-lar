@@ -11,7 +11,6 @@ export const TitleStyled = styled(Typography)`
 
 export const ChipsStyled = styled(Stack)`
     flex-direction: row;
-    justify-content: space-around;
     gap: 3px;
 
     .MuiChip-filled {

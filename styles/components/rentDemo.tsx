@@ -15,7 +15,7 @@ export const RentDemoStyled = styled(Card)(({ theme }: RentDemoStyledProps) => (
     position: "relative",
     display: "flex",
     justifyContent: "center",
-    backgroundImage: `url(${imageRentTest.src})`,
+    // backgroundImage: `url(${imageRentTest.src})`,
     margin: theme?.spacing(2, 1),
 
     "& .swiper-pagination": {
@@ -23,7 +23,8 @@ export const RentDemoStyled = styled(Card)(({ theme }: RentDemoStyledProps) => (
         justifyContent: "flex-end",
         alignItems: "center",
         paddingRight: "16px",
-        bottom: "5px !important"
+        bottom: "5px !important",
+        zIndex: "5 !important",
     },
 
     "& .swiper-pagination-bullet": {
@@ -40,11 +41,15 @@ export const RentDemoStyled = styled(Card)(({ theme }: RentDemoStyledProps) => (
 }));
 
 export const SwiperStyled = styled(Swiper)`
+    width: 100%;
     height: 100%;
 `;
 
-export const SwiperSlideStyled = styled(SwiperSlide)`
-
+export const SwiperSlideContentStyled = styled(Box)`
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
 `;
 
 export const IconButtonStyled = styled(IconButton)`
@@ -87,6 +92,7 @@ export const GradientBottomStyled = styled(Box)`
     width: 100%;
     height: 38px;
     position: absolute;
+    z-index: 1;
     bottom: 0;
     background-image: linear-gradient(to top, #000, #FFFFFF00);
 `;
@@ -153,11 +159,11 @@ export const RentMainDetailsStyled = styled(Stack)`
 `;
 
 export const LinkRentStyled = styled(Link)`
-    background: white;
     border-radius: 30px;
     padding: 0.7rem;
     padding-top: 0.5rem;
     position: relative;
     bottom: -6px;
     text-decoration: none;
+    background: ${props => (props.theme as ITheme).palette.common.white};
 `;

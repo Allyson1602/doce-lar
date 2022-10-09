@@ -1,4 +1,4 @@
-import { Box, Card } from "@mui/material";
+import { Box, Card, Grid, IconButton, Link, Stack } from "@mui/material";
 import { Swiper, SwiperSlide } from "swiper/react";
 import DoubleArrowIcon from '@mui/icons-material/DoubleArrow';
 
@@ -13,6 +13,8 @@ interface RentDemoStyledProps {
 export const RentDemoStyled = styled(Card)(({ theme }: RentDemoStyledProps) => ({
     height: "200px",
     position: "relative",
+    display: "flex",
+    justifyContent: "center",
     backgroundImage: `url(${imageRentTest.src})`,
     margin: theme?.spacing(2, 1),
 
@@ -45,21 +47,13 @@ export const SwiperSlideStyled = styled(SwiperSlide)`
 
 `;
 
-export const RentUtilsStyled = styled(Box)`
-    width: 100%;
-    height: 38px;
+export const IconButtonStyled = styled(IconButton)`
+    height: 43px;
     position: absolute;
+    z-index: 4;
     bottom: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-image: linear-gradient(to top, #000, #FFFFFF00);
-`;
-
-export const DoubleArrowIconStyled = styled(DoubleArrowIcon)`
-    transform: rotate(270deg);
-    font-size: 1.7rem;
-    color: ${props => (props.theme as ITheme).palette.primary.main};
+    margin-bottom: 0px;
+    transition: 1s;
     
     animation-name: moviment;
     animation-duration: 1s;
@@ -67,12 +61,68 @@ export const DoubleArrowIconStyled = styled(DoubleArrowIcon)`
     animation-direction: alternate;
     animation-timing-function: linear;
 
-    @keyframes moviment {
-        from {
-            margin-bottom: 0px;
-        }
-        to {
-            margin-bottom: 10px;
+    &.rent__icon-active {
+        animation-name: none;
+        margin-bottom: 155px !important;
+        transition: margin 1s;
+
+        .MuiSvgIcon-root {
+            transform: rotate(90deg);
+            transition: transform 1s;
+            color: ${props => (props.theme as ITheme).palette.primary.contrastText};
         }
     }
+
+    @keyframes moviment {
+        from {
+            bottom: 0px;
+        }
+        to {
+            bottom: 10px;
+        }
+    }
+`;
+
+export const GradientBottomStyled = styled(Box)`
+    width: 100%;
+    height: 38px;
+    position: absolute;
+    bottom: 0;
+    background-image: linear-gradient(to top, #000, #FFFFFF00);
+`;
+
+export const DoubleArrowIconStyled = styled(DoubleArrowIcon)`
+    transform: rotate(270deg);
+    font-size: 1.7rem;
+    transition: transform 1s;
+    color: ${props => (props.theme as ITheme).palette.primary.main};
+`;
+
+export const MoreFeaturesStyled = styled(Box)`
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    z-Index: 3;
+    height: 0;
+    transition: height 1s;
+    transition-timing-function: ease;
+    background: ${props => (props.theme as ITheme).palette.primary.main};
+    
+    &.active {
+        height: 200px;
+        transition: height 1s;
+        transition-Timing-Function: ease;
+    }
+`;
+
+export const RentDetailsStyled = styled(Grid)`
+
+`;
+
+export const RentMainDetailsStyled = styled(Stack)`
+
+`;
+
+export const LinkRentStyled = styled(Link)`
+
 `;

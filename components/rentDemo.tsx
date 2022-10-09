@@ -1,21 +1,35 @@
-import { IconButton } from "@mui/material";
-import { FC } from "react";
+import { Box, IconButton, Link } from "@mui/material";
+import { FC, useState } from "react";
 import { Pagination } from "swiper";
 
 import "swiper/css";
 import "swiper/css/pagination";
 
 import { DataRentals } from "../interfaces/rentals";
-import { DoubleArrowIconStyled, RentDemoStyled, RentUtilsStyled, SwiperSlideStyled, SwiperStyled } from "../styles/components/rentDemo";
+import { DoubleArrowIconStyled, MoreFeaturesStyled, RentDemoStyled, GradientBottomStyled, SwiperSlideStyled, SwiperStyled, IconButtonStyled } from "../styles/components/rentDemo";
 
 interface RendDemoProps {
     data: DataRentals;
 }
 
 const RentDemo: FC<RendDemoProps> = ({data}) => {
+
+    const [active, setActive] = useState(false);
+
+    const handleClick = () => {
+        setActive(!active);
+    }
+
     return (
         <RentDemoStyled>
-            <SwiperStyled pagination={true} modules={[Pagination]} className="mySwiper">
+            <IconButtonStyled
+                onClick={handleClick}
+                className={active ? "rent__icon-active" : ""}
+            >
+                <DoubleArrowIconStyled />
+            </IconButtonStyled>
+
+            <SwiperStyled pagination={true} modules={[Pagination]}>
                 <SwiperSlideStyled></SwiperSlideStyled>
                 <SwiperSlideStyled>Slide 2</SwiperSlideStyled>
                 <SwiperSlideStyled>Slide 3</SwiperSlideStyled>
@@ -27,11 +41,19 @@ const RentDemo: FC<RendDemoProps> = ({data}) => {
                 <SwiperSlideStyled>Slide 9</SwiperSlideStyled>
             </SwiperStyled>
 
-            <RentUtilsStyled>
-                <IconButton onClick={() => console.log('clicado')} sx={{zIndex: 2}}>
-                    <DoubleArrowIconStyled />
-                </IconButton>
-            </RentUtilsStyled>
+            <GradientBottomStyled />
+
+            <MoreFeaturesStyled className={active ? "active" : ""}>
+                <RendDetailsStyled>
+
+                </RendDetailsStyled>
+
+                <RendMainDetailsStyled>
+                    
+                </RendMainDetailsStyled>
+
+                <Link href="">ver anúncio</Link>
+            </MoreFeaturesStyled>
         </RentDemoStyled>
     );
 };

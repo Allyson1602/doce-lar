@@ -63,7 +63,7 @@ export const IconButtonStyled = styled(IconButton)`
 
     &.rent__icon-active {
         animation-name: none;
-        margin-bottom: 155px !important;
+        margin-bottom: 160px !important;
         transition: margin 1s;
 
         .MuiSvgIcon-root {
@@ -99,6 +99,9 @@ export const DoubleArrowIconStyled = styled(DoubleArrowIcon)`
 `;
 
 export const MoreFeaturesStyled = styled(Box)`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     position: absolute;
     bottom: 0;
     width: 100%;
@@ -107,6 +110,12 @@ export const MoreFeaturesStyled = styled(Box)`
     transition: height 1s;
     transition-timing-function: ease;
     background: ${props => (props.theme as ITheme).palette.primary.main};
+
+    .MuiTypography-root {
+        svg {
+            vertical-align: sub;
+        }
+    }
     
     &.active {
         height: 200px;
@@ -116,13 +125,39 @@ export const MoreFeaturesStyled = styled(Box)`
 `;
 
 export const RentDetailsStyled = styled(Grid)`
+    padding: 1.7rem 1rem 0;
 
+    & :last-child.MuiGrid-root {
+        .MuiTypography-root {
+            text-align: end;
+        }
+    }
+
+    .MuiTypography-root {
+        color: #00000099;
+    }
 `;
 
 export const RentMainDetailsStyled = styled(Stack)`
+    width: 100%;
+    justify-content: space-around;
+    padding-top: 11px;
 
+    .MuiTypography-root {
+        font-weight: 700;
+
+        svg {
+            vertical-align: bottom;
+        }
+    }
 `;
 
 export const LinkRentStyled = styled(Link)`
-
+    background: white;
+    border-radius: 30px;
+    padding: 0.7rem;
+    padding-top: 0.5rem;
+    position: relative;
+    bottom: -6px;
+    text-decoration: none;
 `;

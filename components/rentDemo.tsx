@@ -24,39 +24,45 @@ const RentDemo: FC<RendDemoProps> = ({ data }) => {
         setActive(!active);
     }
 
-    const getFeaturesElement = (): JSX.Element[] => {
+    const getFeaturesLeftElements = (): JSX.Element[] => {
         let itemsFeatures: JSX.Element[] = [];
-
-        if(features.animals) {
-            itemsFeatures.push(<Typography variant="body2">permite animais <PawPrint size={22} weight="thin" /></Typography>);
+        
+        if(features.rooms && features.rooms > 0) {
+            itemsFeatures.push(<Typography variant="body2" fontSize={12}><Door size={20} /> {features.rooms} quartos</Typography>);
         }
 
         if(features.bathrooms && features.bathrooms > 0) {
-            itemsFeatures.push(<Typography variant="body2"><Toilet size={22} weight="thin" /> {features.bathrooms} banheiros</Typography>);
-        }
-
-        if(features.furnished) {
-            itemsFeatures.push(<Typography variant="body2">mobilhado <Armchair size={22} weight="thin" /></Typography>);
-        }
-        
-        if(features.immobileType) {
-            itemsFeatures.push(<Typography variant="body2">{features.immobileType} <House size={22} weight="thin" /></Typography>);
-        }
-        
-        if(features.kids) {
-            itemsFeatures.push(<Typography variant="body2">permite crianças <Baby size={22} weight="thin" /></Typography>);
+            itemsFeatures.push(<Typography variant="body2" fontSize={12}><Toilet size={20} /> {features.bathrooms} banheiros</Typography>);
         }
         
         if(features.people && features.people > 0) {
-            itemsFeatures.push(<Typography variant="body2"><Person size={22} weight="thin" />{features.people} pessoas</Typography>);
-        }
-        
-        if(features.rooms && features.rooms > 0) {
-            itemsFeatures.push(<Typography variant="body2"><Door size={22} weight="thin" /> {features.rooms} quartos</Typography>);
+            itemsFeatures.push(<Typography variant="body2" fontSize={12}><Person size={20} />{features.people} pessoas</Typography>);
         }
         
         if(features.vacancyCar && features.vacancyCar > 0) {
-            itemsFeatures.push(<Typography variant="body2"><Car size={22} weight="thin" /> {features.vacancyCar} carros</Typography>);
+            itemsFeatures.push(<Typography variant="body2" fontSize={12}><Car size={20} /> {features.vacancyCar} carros</Typography>);
+        }
+    
+        return itemsFeatures;
+    }
+    
+    const getFeaturesRightElements = (): JSX.Element[] => {
+        let itemsFeatures: JSX.Element[] = [];
+
+        if(features.furnished) {
+            itemsFeatures.push(<Typography variant="body2" fontSize={12}>mobilhado <Armchair size={20} /></Typography>);
+        }
+        
+        if(features.immobileType) {
+            itemsFeatures.push(<Typography variant="body2" fontSize={12}>{features.immobileType} <House size={20} /></Typography>);
+        }
+
+        if(features.animals) {
+            itemsFeatures.push(<Typography variant="body2" fontSize={12}>permite animais <PawPrint size={20} /></Typography>);
+        }
+        
+        if(features.kids) {
+            itemsFeatures.push(<Typography variant="body2" fontSize={12}>permite crianças <Baby size={20} /></Typography>);
         }
     
         return itemsFeatures;
@@ -85,7 +91,13 @@ const RentDemo: FC<RendDemoProps> = ({ data }) => {
 
             <MoreFeaturesStyled className={active ? "active" : ""}>
                 <RentDetailsStyled container justifyContent="space-between">
-                    {getFeaturesElement().map(feature => feature)}
+                    <Grid item>
+                        {getFeaturesLeftElements().map(feature => feature)}
+                    </Grid>
+
+                    <Grid item>
+                        {getFeaturesRightElements().map(feature => feature)}
+                    </Grid>
                 </RentDetailsStyled>
 
                 <RentMainDetailsStyled direction="row">

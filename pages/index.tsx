@@ -1,4 +1,4 @@
-import { Box, Stack } from '@mui/material';
+import { Box, Button, Stack } from '@mui/material';
 import { ReactElement, useCallback, useEffect, useState } from 'react';
 
 import type { NextPageWithLayout } from './_app';
@@ -10,16 +10,19 @@ import { dataFilter } from '../models/filter';
 import { DataFilter } from '../interfaces/filter';
 import { DataOrder } from '../interfaces/orders';
 import { dataOrder } from '../models/order';
-import { ConfigsGetRentalsStyled, ListRentalsStyled } from '../styles/pages/listRentals';
+import { ButtonRecommendationStyled, ConfigsGetRentalsStyled, ListRentalsStyled } from '../styles/pages/listRentals';
 import { DataRentals } from '../interfaces/rentals';
 import Rental from '../services/rental';
 import RentDemo from '../components/rentDemo';
+import { useRouter } from 'next/router';
 
 const ListRentals: NextPageWithLayout = () => {
 
   const [filters, setFilters] = useState<DataFilter>(dataFilter);
   const [orders, setOrders] = useState<DataOrder>(dataOrder);
   const [rentals, setRentals] = useState<DataRentals[]>([]);
+  
+  const router = useRouter();
 
   const changeFilters = (newFilters: DataFilter) => {
     setFilters({...newFilters});
@@ -27,6 +30,11 @@ const ListRentals: NextPageWithLayout = () => {
   
   const changeOrders = (newOrders: DataOrder) => {
     setOrders({...newOrders});
+  };
+
+  const rentRecommendation = () => {
+    let recomendation = rentals[0].id;
+    router.push(`rent/${recomendation}`);
   };
 
   const getService = useCallback(
@@ -58,7 +66,9 @@ const ListRentals: NextPageWithLayout = () => {
 
       {rentals.map(rent => <RentDemo key={rent.id} data={rent} />)}
 
-      {/* <Button>nossa recomendação de aluguel</Button> */}
+      <Stack justifyContent="center" direction="row">
+        <ButtonRecommendationStyled variant="outlined" onClick={rentRecommendation}>nossa recomendação de aluguel</ButtonRecommendationStyled>
+      </Stack>
 
       {/* <Pagination /> */}
     </ListRentalsStyled>
@@ -76,4 +86,4 @@ ListRentals.getLayout = function getLayout(page: ReactElement) {
   );
 }
 
-export default ListRentals
+export default ListRentals;

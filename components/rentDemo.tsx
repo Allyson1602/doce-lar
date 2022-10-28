@@ -36,7 +36,7 @@ const RentDemo: FC<RendDemoProps> = ({ data }) => {
         }
         
         if(features.people && features.people > 0) {
-            itemsFeatures.push(<Typography variant="body2" fontSize={12}><Person size={20} />{features.people} pessoas</Typography>);
+            itemsFeatures.push(<Typography variant="body2" fontSize={12}><Person size={20} /> {features.people} pessoas</Typography>);
         }
         
         if(features.vacancyCar && features.vacancyCar > 0) {
@@ -92,11 +92,15 @@ const RentDemo: FC<RendDemoProps> = ({ data }) => {
             <MoreFeaturesStyled className={active ? "active" : ""}>
                 <RentDetailsStyled container justifyContent="space-between">
                     <Grid item>
-                        {getFeaturesLeftElements().map(feature => feature)}
+                        {getFeaturesLeftElements().map((feature, index) => (
+                            <span key={index}>{feature}</span>
+                        ))}
                     </Grid>
 
                     <Grid item>
-                        {getFeaturesRightElements().map(feature => feature)}
+                        {getFeaturesRightElements().map((feature, index) => (
+                            <span key={index}>{feature}</span>
+                        ))}
                     </Grid>
                 </RentDetailsStyled>
 

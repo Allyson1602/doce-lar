@@ -6,9 +6,10 @@ import "swiper/css";
 import "swiper/css/pagination";
 
 import { DataRentals } from "../interfaces/rentals";
-import { DoubleArrowIconStyled, MoreFeaturesStyled, RentDemoStyled, GradientBottomStyled, SwiperStyled, IconButtonStyled, LinkRentStyled, RentDetailsStyled, RentMainDetailsStyled, SwiperSlideContentStyled } from "../styles/components/rentDemo";
+import { DoubleArrowIconStyled, MoreFeaturesStyled, RentDemoStyled, IconButtonStyled, LinkRentStyled, RentDetailsStyled, RentMainDetailsStyled } from "../styles/components/rentDemo";
 import { Door, Toilet, Person, Car, Armchair, House, PawPrint, Baby, Ruler, Money } from "phosphor-react";
 import { SwiperSlide } from "swiper/react";
+import Carousel from "./carousel";
 
 interface RendDemoProps {
     data: DataRentals;
@@ -77,17 +78,7 @@ const RentDemo: FC<RendDemoProps> = ({ data }) => {
                 <DoubleArrowIconStyled />
             </IconButtonStyled>
 
-            <SwiperStyled pagination={true} modules={[Pagination]}>
-                {images.map((image, index) => {
-                    return (
-                        <SwiperSlide key={index}>
-                            <SwiperSlideContentStyled sx={{ background: `url("data:image/jpg;base64, ${image}")` }}></SwiperSlideContentStyled>
-                        </SwiperSlide>
-                    );
-                })}
-
-                <GradientBottomStyled />
-            </SwiperStyled>
+            <Carousel images={images} />
 
             <MoreFeaturesStyled className={active ? "active" : ""}>
                 <RentDetailsStyled container justifyContent="space-between">
@@ -109,7 +100,7 @@ const RentDemo: FC<RendDemoProps> = ({ data }) => {
                     <Typography variant="body1"><Ruler size={32} weight="thin" /> 144M²</Typography>
                 </RentMainDetailsStyled>
 
-                <LinkRentStyled href="">ver anúncio</LinkRentStyled>
+                <LinkRentStyled href={`rent/${id}`}>ver anúncio</LinkRentStyled>
             </MoreFeaturesStyled>
         </RentDemoStyled>
     );

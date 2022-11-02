@@ -1,5 +1,4 @@
 import { Box, Card, Grid, IconButton, Link, Stack } from "@mui/material";
-import { Swiper, SwiperSlide } from "swiper/react";
 import DoubleArrowIcon from '@mui/icons-material/DoubleArrow';
 
 import { ITheme } from "../../themes/themes";
@@ -40,18 +39,6 @@ export const RentDemoStyled = styled(Card)(({ theme }: RentDemoStyledProps) => (
     },
 }));
 
-export const SwiperStyled = styled(Swiper)`
-    width: 100%;
-    height: 100%;
-`;
-
-export const SwiperSlideContentStyled = styled(Box)`
-    width: 100%;
-    height: 100%;
-    background-size: cover;
-    background-position: center;
-`;
-
 export const IconButtonStyled = styled(IconButton)`
     height: 43px;
     position: absolute;
@@ -86,15 +73,6 @@ export const IconButtonStyled = styled(IconButton)`
             bottom: 10px;
         }
     }
-`;
-
-export const GradientBottomStyled = styled(Box)`
-    width: 100%;
-    height: 38px;
-    position: absolute;
-    z-index: 1;
-    bottom: 0;
-    background-image: linear-gradient(to top, #000, #FFFFFF00);
 `;
 
 export const DoubleArrowIconStyled = styled(DoubleArrowIcon)`

@@ -15,12 +15,17 @@ import { DataRentals } from '../interfaces/rentals';
 import Rental from '../services/rental';
 import RentDemo from '../components/rentDemo';
 import { useRouter } from 'next/router';
+import Pagination from '../components/pagination';
+
+import Skeleton from 'react-loading-skeleton';
+import 'react-loading-skeleton/dist/skeleton.css';
 
 const ListRentals: NextPageWithLayout = () => {
 
   const [filters, setFilters] = useState<DataFilter>(dataFilter);
   const [orders, setOrders] = useState<DataOrder>(dataOrder);
   const [rentals, setRentals] = useState<DataRentals[]>([]);
+  const [lengthPages, setLengthPages] = useState(1);
   
   const router = useRouter();
 
@@ -53,9 +58,23 @@ const ListRentals: NextPageWithLayout = () => {
     }, [getService]
   );
 
+  const getRentalLengthPages = useCallback(
+    () => {
+      getService().getRentalLengthPages().then(({ data }) => {
+          setLengthPages(data.lengthPages);
+      }).catch((error) => {
+        console.log("Não foi possível quantidade de pages"); // snackbar
+      });
+    }, [getService]
+  );
+
   useEffect(() => {
     getRentals();
   }, [getRentals]);
+
+  useEffect(() => {
+    getRentalLengthPages();
+  }, [getRentalLengthPages]);
   
   return (
     <ListRentalsStyled>
@@ -64,13 +83,52 @@ const ListRentals: NextPageWithLayout = () => {
         <Order orders={orders} setOrders={changeOrders} />
       </ConfigsGetRentalsStyled>
 
-      {rentals.map(rent => <RentDemo key={rent.id} data={rent} />)}
+      { rentals.length > 0
+        ? (
+          rentals.map(rent => <RentDemo key={rent.id} data={rent} />)
+        )
+        : (
+          <>
+            <Skeleton
+              height="200px"
+              style={{
+                margin: "16px 8px",
+                width:"calc(100% - 16px)"
+              }}
+            />
+            
+            <Skeleton
+              height="200px"
+              style={{
+                margin: "16px 8px",
+                width:"calc(100% - 16px)"
+              }}
+            />
+            
+            <Skeleton
+              height="200px"
+              style={{
+                margin: "16px 8px",
+                width:"calc(100% - 16px)"
+              }}
+            />
+            
+            <Skeleton
+              height="200px"
+              style={{
+                margin: "16px 8px",
+                width:"calc(100% - 16px)"
+              }}
+            />
+          </>
+        )
+      }
 
       <Stack justifyContent="center" direction="row">
         <ButtonRecommendationStyled variant="outlined" onClick={rentRecommendation}>nossa recomendação de aluguel</ButtonRecommendationStyled>
       </Stack>
 
-      {/* <Pagination /> */}
+      <Pagination pages={lengthPages} />
     </ListRentalsStyled>
   )
 };

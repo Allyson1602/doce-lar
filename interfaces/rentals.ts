@@ -9,6 +9,11 @@ export interface DataRentals {
     size: number
 }
 
+export interface LengthPages {
+    lengthPages: number;
+}
+
 export interface RentalService {
     getRentals: () => Promise<AxiosResponse<DataRentals[]>>;
+    getRentalLengthPages: () => Promise<AxiosResponse<LengthPages>>;
 }

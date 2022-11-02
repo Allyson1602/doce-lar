@@ -20,7 +20,7 @@ export const FooterStyled = styled.footer`
 
 export const LinkBackTopStyled = styled(Button)`
     height: 30px;
-    margin-top: ${(props) => (props.theme as ITheme).spacing(1)};
+    margin-top: ${(props) => (props.theme as ITheme).spacing(4)};
     color: ${(props) => (props.theme as ITheme).palette.secondary.main};
     padding: ${(props) => (props.theme as ITheme).spacing(0, 1)};
 `;

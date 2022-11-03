@@ -1,6 +1,5 @@
-import { Box, Grid, Typography } from "@mui/material";
+import { Grid, Typography } from "@mui/material";
 import { FC, useState } from "react";
-import { Pagination } from "swiper";
 
 import "swiper/css";
 import "swiper/css/pagination";
@@ -8,7 +7,6 @@ import "swiper/css/pagination";
 import { DataRentals } from "../interfaces/rentals";
 import { DoubleArrowIconStyled, MoreFeaturesStyled, RentDemoStyled, IconButtonStyled, LinkRentStyled, RentDetailsStyled, RentMainDetailsStyled } from "../styles/components/rentDemo";
 import { Door, Toilet, Person, Car, Armchair, House, PawPrint, Baby, Ruler, Money } from "phosphor-react";
-import { SwiperSlide } from "swiper/react";
 import Carousel from "./carousel";
 
 interface RendDemoProps {

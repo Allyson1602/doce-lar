@@ -1,7 +1,10 @@
 import { FC } from "react";
+import { SwiperStyled, SwiperSlideContentStyled, GradientBottomStyled } from "../styles/components/carousel";
+
 import { Pagination } from "swiper";
 import { SwiperSlide } from "swiper/react";
-import { SwiperStyled, SwiperSlideContentStyled, GradientBottomStyled } from "../styles/components/carousel";
+import "swiper/css";
+import "swiper/css/pagination";
 
 interface CarouselProps {
     images: string[];
@@ -13,7 +16,7 @@ const Carousel: FC<CarouselProps> = ({ images }) => {
             {images.map((image, index) => {
                 return (
                     <SwiperSlide key={index}>
-                        <SwiperSlideContentStyled sx={{ background: `url("data:image/jpg;base64, ${image}")` }} />
+                        <SwiperSlideContentStyled style={{ background: `url("data:image/jpg;base64, ${image}")`, backgroundSize: "contain"}} />
                     </SwiperSlide>
                 );
             })}

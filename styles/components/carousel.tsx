@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
 import { Box } from "@mui/material";
-import { Swiper } from "swiper/react";
+import { Swiper, SwiperSlide } from "swiper/react";
 import { ITheme } from "../../themes/themes";
 
 export const SwiperStyled = styled(Swiper)`
@@ -8,7 +8,7 @@ export const SwiperStyled = styled(Swiper)`
     height: 100%;
 `;
 
-export const SwiperSlideContentStyled = styled(Box)`
+export const SwiperSlideContentStyled = styled(SwiperSlide)`
     width: 100%;
     height: 100%;
     background-size: cover;

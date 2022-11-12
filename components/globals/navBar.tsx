@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { Toolbar } from "@mui/material";
+import { Link, Toolbar } from "@mui/material";
 import Logo from "../../public/logo.png";
 
 import { ButtonRentStyled, NavBarStyled, TitleStyled, ToolbarStyled } from "../../styles/components/globals/navBar";
@@ -19,7 +19,7 @@ const NavBar: FC<NavBarProps> = ({ rent, title }) => {
             <ToolbarStyled>
                 <Image src={Logo} alt="logo do sistema" />
 
-                {rentButton && <ButtonRentStyled>alugar</ButtonRentStyled>}
+                {rentButton && <ButtonRentStyled variant="contained" LinkComponent={Link} href="/rent/new">alugar</ButtonRentStyled>}
 
                 {title && <TitleStyled>{title}</TitleStyled>}
             </ToolbarStyled>

@@ -12,8 +12,6 @@ export const ToolbarStyled = styled(Toolbar)`
 `;
 
 export const ButtonRentStyled = styled(Button)`
-    background: ${props => (props.theme as ITheme).palette.primary.main};
-    color: ${props => (props.theme as ITheme).palette.primary.contrastText};
     padding: ${props => (props.theme as ITheme).spacing(0.2, 3)};
 `;
 

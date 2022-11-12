@@ -401,10 +401,10 @@ const Filter: FC<FilterProps> = (props) => {
                         color="inherit"
                         onClick={handleCloseDialog}
                         sx={{
-                        position: 'absolute',
-                        right: 15,
-                        top: 5,
-                        color: (theme) => theme.palette.grey[500],
+                            position: 'absolute',
+                            right: 15,
+                            top: 5,
+                            color: (theme) => theme.palette.grey[500],
                         }}
                     >
                         <CloseIcon />

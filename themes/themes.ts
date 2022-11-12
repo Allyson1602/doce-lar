@@ -1,6 +1,10 @@
 import { createTheme } from "@mui/material";
 import { Theme as ThemeMui } from "@mui/system/createTheme/createTheme";
 
+declare module '@emotion/react' {
+  export interface Theme extends ThemeMui {}
+}
+
 export interface ITheme extends ThemeMui {
     typography: {
         fontSize: number;

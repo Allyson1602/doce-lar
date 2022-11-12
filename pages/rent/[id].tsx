@@ -7,14 +7,14 @@ import { TypeColorFooter } from "../../components/globals/footer";
 import NavBar from "../../components/globals/navBar";
 import Layout from "../../components/layout";
 import Map from "../../components/map/map";
-import { AddressMainInfosStyled, ButtonsContactRentStyled, ContentCarouselStyled, ContentRentDescriptionStyled, ContentRentMapStyled, DividerFlagStyled, DividerStyled, FlagRentStyled, MainInfosStyled, MainRentStyled, PositionCarouselStyled, RentDividerStyled, RentGradientMapStyled, RentPlaceInfosBodyStyled, RentPlaceInfosHeaderStyled, RentPlaceInfosStyled, RentStyled, TextRentDescriptionStyled, TitleMainInfosStyled, ViewsStyled } from "../../styles/pages/rent";
+import { AddressMainInfosStyled, ButtonsContactRentStyled, ContentCarouselStyled, ContentRentDescriptionStyled, ContentRentMapStyled, DividerFlagStyled, DividerStyled, FlagRentStyled, MainInfosStyled, MainRentStyled, PositionCarouselStyled, RentDividerStyled, RentGradientMapStyled, RentPlaceInfosBodyStyled, RentPlaceInfosHeaderStyled, RentPlaceInfosStyled, RentStyled, TextRentDescriptionStyled, TitleMainInfosStyled, ViewsStyled } from "../../styles/pages/rent/rent";
 import { NextPageWithLayout } from "../_app";
 
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 
 const Rent: NextPageWithLayout = () => {
-    const router = useRouter()
+    const router = useRouter();
     const { id } = router.query;
     
     return (

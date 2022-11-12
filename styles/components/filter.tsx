@@ -25,6 +25,10 @@ export const DialogChipsStyled = styled(Stack)`
     gap: ${props => (props.theme as ITheme).spacing(1)};
     margin-top: ${props => (props.theme as ITheme).spacing(6)};
     margin-bottom: ${props => (props.theme as ITheme).spacing(2)};
+
+    .MuiChip-root {
+        cursor: pointer;
+    }
     
     .MuiChip-filled {
         color: ${props => (props.theme as ITheme).palette.common.white};

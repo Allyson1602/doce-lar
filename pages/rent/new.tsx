@@ -29,8 +29,20 @@ const RegisterRent: NextPageWithLayout = () => {
         // onSubmit();
     };
 
+    const goBackRentals = () => {
+
+    };
+
     return (
         <Container>
+            <Button
+                sx={{mt: 2}}
+                color="secondary"
+                onClick={goBackRentals}
+                variant="outlined"
+                size="small"
+            >voltar</Button>
+
             <form onSubmit={handleSubmit}>
                 <FieldGroupStyled container rowGap={2}>
                     <Grid item xs={12}>

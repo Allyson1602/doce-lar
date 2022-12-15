@@ -5,6 +5,10 @@ const theme = createTheme({
     commom: {
         black: '#202124',
     },
+    grey: {
+        '300': '#E1E1E6',
+        '600': '#7C7C8A',
+    },
     primary: {
       main: '#B2DAFF',
       light: '#00A6FB',

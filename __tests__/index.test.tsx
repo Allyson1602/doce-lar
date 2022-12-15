@@ -1,7 +1,7 @@
 import { render, screen } from '@testing-library/react'
 import Home from '@/pages/index'
 
-describe('Home', () => {
+// describe('Home', () => {
   // it('renders a heading', () => {
   //   render(<Home />)
 
@@ -11,4 +11,4 @@ describe('Home', () => {
 
   //   expect(heading).toBeInTheDocument()
   // })
-})
+// })

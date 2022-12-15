@@ -53,7 +53,6 @@ export const theme = createTheme({
       fontWeight: '700',
       fontSize: '30px',
     },
-    
     desktopTextSmall: {
       fontFamily: 'Poppins, Roboto, Arial, sans-serif',
       fontWeight: '400',

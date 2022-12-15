@@ -2,6 +2,7 @@ import Head from 'next/head'
 import Image from 'next/image'
 
 import styles from '@/pages/index.module.css'
+import VercelLogo from './vercel.png'
 
 export default function Home() {
   return (
@@ -56,7 +57,28 @@ export default function Home() {
         >
           Powered by{' '}
           <span className={styles.logo}>
-            <Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} />
+            <span
+              style={{boxSizing: "border-box", display: "inline-block", overflow: "hidden", background: "none", opacity: "1", border: "0px", margin: "0px", padding: "0px", position: "relative", maxWidth: "100%"}}
+            >
+              <span
+                style={{boxSizing: "border-box", display: "block", background: "none", opacity: "1", border: "0px", margin: "0px", padding: "0px", maxWidth: "100%"}}
+              >
+                <img
+                  alt=""
+                  aria-hidden="true"
+                  src="data:image/svg+xml,%3csvg%20xmlns=%27http://www.w3.org/2000/svg%27%20version=%271.1%27%20width=%2772%27%20height=%2716%27/%3e"
+                  style={{display: "block", maxWidth: "100%", background: "none", opacity: "1", border: "0px", margin: "0px", padding: "0px"}}
+                />
+              </span>
+              <img
+                alt="Vercel Logo"
+                data-nimg="intrinsic"
+                decoding="async"
+                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+                style={{position: "absolute", top: "0px", left: "0px", bottom: "0px", right: "0px", boxSizing: "border-box", padding: "0px", margin: "auto", display: "block", width: "0px", height: "0px", minWidth: "100%", maxWidth: "100%", minHeight: "100%", maxHeight: "100%",}}
+              />
+              <noscript />
+            </span>
           </span>
         </a>
       </footer>

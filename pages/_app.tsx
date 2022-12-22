@@ -1,10 +1,18 @@
+import { Footer } from '@/components/footer/footer';
 import '@/styles/global.css'
+import { CssBaseline, ThemeProvider } from '@mui/material';
 import type { AppProps } from 'next/app'
+import { theme } from 'themes/themes';
 
 export default function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <>
-      <Component {...pageProps} />
-    </>
+      <ThemeProvider theme={theme}>
+        <CssBaseline enableColorScheme />
+
+        <>
+          <Component {...pageProps} />
+          <Footer />
+        </>
+      </ThemeProvider>
   );
 }

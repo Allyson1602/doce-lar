@@ -8,5 +8,8 @@ body {
   margin: 0;
   font-family: Poppins, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+
+  scroll-behavior: smooth;
+  min-width: 360px;
 }
 

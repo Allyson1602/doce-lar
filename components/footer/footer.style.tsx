@@ -18,7 +18,7 @@ export const SpacingFooterStyled = styled(Container)`
 `;
 
 export const ContentPagesHelpStackStyled = styled(Stack)`
-    width: 500px;
+    max-width: 500px;
 `;
 
 export const BackTopButtonStyled = styled(Button)`

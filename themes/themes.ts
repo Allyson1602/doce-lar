@@ -25,8 +25,8 @@ export const theme = createTheme({
     },
   },
   typography: {
-    fontWeightLight: 300,
-    fontWeightRegular: 400,
+    fontWeightLight: 200,
+    fontWeightRegular: 300,
     fontWeightMedium: 500,
     fontWeightBold: 700,
     button: {
@@ -35,17 +35,17 @@ export const theme = createTheme({
     },
     phoneTextSmall: {
       fontFamily: 'Poppins, Roboto, Arial, sans-serif',
-      fontWeight: '400',
+      fontWeight: '300',
       fontSize: '12px',
     },
     phoneTextMedium: {
       fontFamily: 'Poppins, Roboto, Arial, sans-serif',
-      fontWeight: '400',
+      fontWeight: '300',
       fontSize: '14px',
     },
     phoneTextLarge: {
       fontFamily: 'Poppins, Roboto, Arial, sans-serif',
-      fontWeight: '400',
+      fontWeight: '300',
       fontSize: '16px',
     },
     phoneHeadingSmall: {
@@ -65,17 +65,17 @@ export const theme = createTheme({
     },
     desktopTextSmall: {
       fontFamily: 'Poppins, Roboto, Arial, sans-serif',
-      fontWeight: '400',
+      fontWeight: '300',
       fontSize: '14px',
     },
     desktopTextMedium: {
       fontFamily: 'Poppins, Roboto, Arial, sans-serif',
-      fontWeight: '400',
+      fontWeight: '300',
       fontSize: '16px',
     },
     desktopTextLarge: {
       fontFamily: 'Poppins, Roboto, Arial, sans-serif',
-      fontWeight: '400',
+      fontWeight: '300',
       fontSize: '18px',
     },
     desktopHeadingSmall: {

@@ -3,10 +3,13 @@ import Image from 'next/image'
 
 import styles from '@/pages/index.module.css'
 import VercelLogo from './vercel.png'
+import { Navbar } from '@/components/navbar/navbar'
 
 export default function Home() {
   return (
-    <div className={styles.container}>
+    <div>
+      <Navbar />
+      
       <Head>
         <title>Create Next App</title>
         <link rel="icon" href="/favicon.ico" />

@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import { Toolbar, Button, Divider, Stack, Box, Typography } from "@mui/material";
+import { Toolbar, Button, Box, Typography } from "@mui/material";
 import { CustomTheme } from "theme";
 
 export const ContainerNavbarBoxStyled = styled(Box)`
@@ -12,6 +12,11 @@ export const ToolbarStyled = styled(Toolbar)`
     margin: 0 auto;
 
     justify-content: space-between;
+`;
+
+export const TitleTypographyStyled = styled(Typography)`
+    fontWeight: 400;
+    color: ${props => (props.theme as CustomTheme).palette.primary.main};
 `;
 
 export const RentButtonStyled = styled(Button)`

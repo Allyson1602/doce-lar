@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { Box, Stack, Typography } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import Link from "next/link";
 import { FacebookLogo, InstagramLogo, LinkedinLogo } from "phosphor-react";
 

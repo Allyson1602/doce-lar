@@ -32,6 +32,8 @@ export const theme = createTheme({
     button: {
       fontSize: '14px',
       textTransform: 'none',
+      fontFamily: 'Poppins, Roboto, Arial, sans-serif',
+      fontWeight: '300',
     },
     phoneTextSmall: {
       fontFamily: 'Poppins, Roboto, Arial, sans-serif',
